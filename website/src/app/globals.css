@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f1e7;
+  --foreground: #101010;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+a {
+  text-underline-offset: 4px;
+}
+
+::selection {
+  background: #101010;
+  color: #f6f1e7;
+}
