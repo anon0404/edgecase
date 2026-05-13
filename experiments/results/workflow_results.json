@@ -1,0 +1,411 @@
+[
+  {
+    "case_id": "banking_001",
+    "domain": "banking",
+    "trace": {
+      "signals": [
+        "fraud_risk",
+        "disability_signal"
+      ],
+      "workflow": "banking_identity_verification",
+      "user_context": {},
+      "route": "verification_router",
+      "model_calls": 3,
+      "tokens_estimate": 1950,
+      "latency_ms": 1450
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "verify_vs_accessibility",
+      "triggered_obligations": [
+        "fraud.verify",
+        "accessibility.reduce_burden"
+      ],
+      "recommended_mitigation": "adaptive_verification",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.35,
+        "accessibility_burden": 0.78,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      },
+      "audit": {
+        "workflow": "banking_identity_verification",
+        "signals": [
+          "fraud_risk",
+          "disability_signal"
+        ],
+        "actions": [
+          "constrain",
+          "verify"
+        ],
+        "model_calls": 3,
+        "tokens_estimate": 1950
+      }
+    }
+  },
+  {
+    "case_id": "banking_002",
+    "domain": "banking",
+    "trace": {
+      "signals": [
+        "identity_risk",
+        "language_barrier"
+      ],
+      "workflow": "banking_identity_verification",
+      "user_context": {},
+      "route": "verification_router",
+      "model_calls": 3,
+      "tokens_estimate": 1950,
+      "latency_ms": 1450
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "verify_vs_accessibility",
+      "triggered_obligations": [
+        "fraud.verify",
+        "accessibility.reduce_burden"
+      ],
+      "recommended_mitigation": "adaptive_verification",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.35,
+        "accessibility_burden": 0.78,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      },
+      "audit": {
+        "workflow": "banking_identity_verification",
+        "signals": [
+          "identity_risk",
+          "language_barrier"
+        ],
+        "actions": [
+          "constrain",
+          "verify"
+        ],
+        "model_calls": 3,
+        "tokens_estimate": 1950
+      }
+    }
+  },
+  {
+    "case_id": "banking_003",
+    "domain": "banking",
+    "trace": {
+      "signals": [
+        "fraud_risk",
+        "distress"
+      ],
+      "workflow": "banking_identity_verification",
+      "user_context": {},
+      "route": "verification_router",
+      "model_calls": 2,
+      "tokens_estimate": 1500,
+      "latency_ms": 1100
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "verify_vs_accessibility",
+      "triggered_obligations": [
+        "fraud.verify",
+        "accessibility.reduce_burden"
+      ],
+      "recommended_mitigation": "adaptive_verification",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.35,
+        "accessibility_burden": 0.78,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      },
+      "audit": {
+        "workflow": "banking_identity_verification",
+        "signals": [
+          "fraud_risk",
+          "distress"
+        ],
+        "actions": [
+          "constrain",
+          "verify"
+        ],
+        "model_calls": 2,
+        "tokens_estimate": 1500
+      }
+    }
+  },
+  {
+    "case_id": "crisis_001",
+    "domain": "crisis",
+    "trace": {
+      "signals": [
+        "jailbreak",
+        "self_harm"
+      ],
+      "workflow": "crisis_assistant",
+      "user_context": {},
+      "route": "safety_and_care_router",
+      "model_calls": 4,
+      "tokens_estimate": 2400,
+      "latency_ms": 2180
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "block_vs_escalate",
+      "triggered_obligations": [
+        "security.block",
+        "care.escalate",
+        "safeguarding.preserve_context"
+      ],
+      "recommended_mitigation": "constrain_and_escalate",
+      "externalities": {
+        "care_suppression_risk": 0.72,
+        "security_risk": 0.41,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      },
+      "audit": {
+        "workflow": "crisis_assistant",
+        "signals": [
+          "jailbreak",
+          "self_harm"
+        ],
+        "actions": [
+          "block",
+          "escalate",
+          "increase_review"
+        ],
+        "model_calls": 4,
+        "tokens_estimate": 2400
+      }
+    }
+  },
+  {
+    "case_id": "crisis_002",
+    "domain": "crisis",
+    "trace": {
+      "signals": [
+        "policy_evasion",
+        "coercion"
+      ],
+      "workflow": "crisis_assistant",
+      "user_context": {},
+      "route": "safety_and_care_router",
+      "model_calls": 4,
+      "tokens_estimate": 2400,
+      "latency_ms": 2180
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "block_vs_escalate",
+      "triggered_obligations": [
+        "security.block",
+        "care.escalate",
+        "safeguarding.preserve_context"
+      ],
+      "recommended_mitigation": "constrain_and_escalate",
+      "externalities": {
+        "care_suppression_risk": 0.72,
+        "security_risk": 0.41,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      },
+      "audit": {
+        "workflow": "crisis_assistant",
+        "signals": [
+          "policy_evasion",
+          "coercion"
+        ],
+        "actions": [
+          "block",
+          "escalate",
+          "increase_review"
+        ],
+        "model_calls": 4,
+        "tokens_estimate": 2400
+      }
+    }
+  },
+  {
+    "case_id": "crisis_003",
+    "domain": "crisis",
+    "trace": {
+      "signals": [
+        "malicious_request",
+        "crisis"
+      ],
+      "workflow": "crisis_assistant",
+      "user_context": {},
+      "route": "safety_and_care_router",
+      "model_calls": 3,
+      "tokens_estimate": 1900,
+      "latency_ms": 1760
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "block_vs_escalate",
+      "triggered_obligations": [
+        "security.block",
+        "care.escalate"
+      ],
+      "recommended_mitigation": "constrain_and_escalate",
+      "externalities": {
+        "care_suppression_risk": 0.72,
+        "security_risk": 0.41,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      },
+      "audit": {
+        "workflow": "crisis_assistant",
+        "signals": [
+          "malicious_request",
+          "crisis"
+        ],
+        "actions": [
+          "block",
+          "escalate"
+        ],
+        "model_calls": 3,
+        "tokens_estimate": 1900
+      }
+    }
+  },
+  {
+    "case_id": "healthcare_001",
+    "domain": "healthcare",
+    "trace": {
+      "signals": [
+        "high_risk",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare_triage",
+      "user_context": {},
+      "route": "triage_review_router",
+      "model_calls": 3,
+      "tokens_estimate": 3100,
+      "latency_ms": 2210
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "safety_vs_energy",
+      "triggered_obligations": [
+        "energy.reduce_compute",
+        "safety.increase_review"
+      ],
+      "recommended_mitigation": "adaptive_depth",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.25,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "high"
+      },
+      "audit": {
+        "workflow": "healthcare_triage",
+        "signals": [
+          "high_risk",
+          "compute_pressure"
+        ],
+        "actions": [
+          "increase_review",
+          "reduce_compute"
+        ],
+        "model_calls": 3,
+        "tokens_estimate": 3100
+      }
+    }
+  },
+  {
+    "case_id": "healthcare_002",
+    "domain": "healthcare",
+    "trace": {
+      "signals": [
+        "uncertain",
+        "latency_constraint"
+      ],
+      "workflow": "healthcare_triage",
+      "user_context": {},
+      "route": "triage_review_router",
+      "model_calls": 2,
+      "tokens_estimate": 2400,
+      "latency_ms": 1690
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "safety_vs_energy",
+      "triggered_obligations": [
+        "energy.reduce_compute",
+        "safety.increase_review"
+      ],
+      "recommended_mitigation": "adaptive_depth",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.25,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "medium"
+      },
+      "audit": {
+        "workflow": "healthcare_triage",
+        "signals": [
+          "uncertain",
+          "latency_constraint"
+        ],
+        "actions": [
+          "increase_review",
+          "reduce_compute"
+        ],
+        "model_calls": 2,
+        "tokens_estimate": 2400
+      }
+    }
+  },
+  {
+    "case_id": "healthcare_003",
+    "domain": "healthcare",
+    "trace": {
+      "signals": [
+        "regulated_advice",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare_triage",
+      "user_context": {},
+      "route": "triage_review_router",
+      "model_calls": 3,
+      "tokens_estimate": 3100,
+      "latency_ms": 2210
+    },
+    "edgecase_report": {
+      "collision_detected": true,
+      "collision_type": "safety_vs_energy",
+      "triggered_obligations": [
+        "energy.reduce_compute",
+        "safety.increase_review"
+      ],
+      "recommended_mitigation": "adaptive_depth",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.25,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "high"
+      },
+      "audit": {
+        "workflow": "healthcare_triage",
+        "signals": [
+          "regulated_advice",
+          "compute_pressure"
+        ],
+        "actions": [
+          "increase_review",
+          "reduce_compute"
+        ],
+        "model_calls": 3,
+        "tokens_estimate": 3100
+      }
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "banking": {
+    "cases": 3,
+    "collisions": 3,
+    "model_calls": 8,
+    "tokens": 5400,
+    "collision_rate": 1.0,
+    "avg_model_calls": 2.6666666666666665,
+    "avg_tokens": 1800.0
+  },
+  "crisis": {
+    "cases": 3,
+    "collisions": 3,
+    "model_calls": 11,
+    "tokens": 6700,
+    "collision_rate": 1.0,
+    "avg_model_calls": 3.6666666666666665,
+    "avg_tokens": 2233.3333333333335
+  },
+  "healthcare": {
+    "cases": 3,
+    "collisions": 3,
+    "model_calls": 8,
+    "tokens": 8600,
+    "collision_rate": 1.0,
+    "avg_model_calls": 2.6666666666666665,
+    "avg_tokens": 2866.6666666666665
+  }
+}
