@@ -1,0 +1,7 @@
+| policy | cases | mitigation_accuracy | avg_care_suppression | avg_security_risk | avg_accessibility_burden | avg_privacy_exposure | avg_energy_score |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| strict_block | 300 | 0 | 0.88 | 0.12 | 0.44 | 0.08 | 0.2 |
+| always_escalate | 300 | 0 | 0.18 | 0.62 | 0.22 | 0.31 | 0.5 |
+| always_verify | 300 | 0 | 0.32 | 0.28 | 0.84 | 0.18 | 0.5 |
+| maximum_review | 300 | 0 | 0.21 | 0.16 | 0.38 | 0.24 | 0.9 |
+| edgecase_adaptive | 300 | 1 | 0.29 | 0.253 | 0.195 | 0.145 | 0.35 |

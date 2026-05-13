@@ -1,0 +1,52 @@
+[
+  {
+    "policy": "strict_block",
+    "cases": 300,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression": 0.88,
+    "avg_security_risk": 0.12,
+    "avg_accessibility_burden": 0.44,
+    "avg_privacy_exposure": 0.08,
+    "avg_energy_score": 0.2
+  },
+  {
+    "policy": "always_escalate",
+    "cases": 300,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression": 0.18,
+    "avg_security_risk": 0.62,
+    "avg_accessibility_burden": 0.22,
+    "avg_privacy_exposure": 0.31,
+    "avg_energy_score": 0.5
+  },
+  {
+    "policy": "always_verify",
+    "cases": 300,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression": 0.32,
+    "avg_security_risk": 0.28,
+    "avg_accessibility_burden": 0.84,
+    "avg_privacy_exposure": 0.18,
+    "avg_energy_score": 0.5
+  },
+  {
+    "policy": "maximum_review",
+    "cases": 300,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression": 0.21,
+    "avg_security_risk": 0.16,
+    "avg_accessibility_burden": 0.38,
+    "avg_privacy_exposure": 0.24,
+    "avg_energy_score": 0.9
+  },
+  {
+    "policy": "edgecase_adaptive",
+    "cases": 300,
+    "mitigation_accuracy": 1,
+    "avg_care_suppression": 0.29,
+    "avg_security_risk": 0.253,
+    "avg_accessibility_burden": 0.195,
+    "avg_privacy_exposure": 0.145,
+    "avg_energy_score": 0.35
+  }
+]
