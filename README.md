@@ -2,7 +2,7 @@
 
 # EdgeCase
 
-<img src="website/public/edgecase-logo.png" alt="EdgeCase logo" width="240"/>
+<img src="website/public/edgecase-logo.png" alt="EdgeCase logo" width="170"/>
 
 ### Conflict-aware assurance for agentic AI systems
 
