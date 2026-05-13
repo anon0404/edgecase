@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {
   ArrowRight,
+  BarChart3,
   FileJson,
   GitBranch,
   Package,
@@ -13,18 +14,22 @@ const collisions = [
   {
     title: "Block vs Escalate",
     body: "A jailbreak-like signal also indicates crisis, coercion, or self-harm risk.",
+    mitigation: "Constrain + Escalate",
   },
   {
     title: "Verify vs Accessibility",
     body: "Fraud controls burden disabled, distressed, or non-native users.",
+    mitigation: "Adaptive Verification",
   },
   {
     title: "Privacy vs Safeguarding",
     body: "Minimization removes context needed for intervention or protected review.",
+    mitigation: "Split Logging",
   },
   {
     title: "Safety vs Energy",
     body: "Multi-pass safety improves robustness while increasing cost, latency, and emissions.",
+    mitigation: "Adaptive Depth",
   },
 ];
 
@@ -35,6 +40,14 @@ const metrics = [
   "Over-refusal rate",
   "Mitigation externality score",
   "Safety-energy profile",
+];
+
+const architecture = [
+  ["1", "Agent workflow", "Trace tool calls, routing, memory, gates, validators, and model decisions."],
+  ["2", "Obligation registry", "Represent security, care, privacy, fairness, accessibility, compliance, and energy as triggerable duties."],
+  ["3", "Collision detector", "Identify when valid obligations recommend incompatible actions."],
+  ["4", "Mitigation router", "Select bounded strategies instead of collapsing to allow/block behavior."],
+  ["5", "Audit artifact", "Export governance-ready evidence about triggered obligations, trade-offs, and externalities."],
 ];
 
 export default function Home() {
@@ -50,9 +63,7 @@ export default function Home() {
             className="h-16 w-16 object-contain"
             priority
           />
-          <span className="font-mono text-2xl tracking-tight">
-            EdgeCase
-          </span>
+          <span className="font-mono text-2xl tracking-tight">EdgeCase</span>
         </a>
 
         <div className="hidden gap-7 text-sm md:flex">
@@ -60,6 +71,7 @@ export default function Home() {
           <a href="#python">Python</a>
           <a href="#api">API</a>
           <a href="#experiments">Experiments</a>
+          <a href="#paper">Paper</a>
         </div>
       </nav>
 
@@ -81,17 +93,10 @@ export default function Home() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <a
-              href="#python"
-              className="rounded-full bg-[#101010] px-5 py-3 text-sm text-white transition hover:bg-[#2a2a2a]"
-            >
+            <a href="#python" className="rounded-full bg-[#101010] px-5 py-3 text-sm text-white transition hover:bg-[#2a2a2a]">
               Install Python package
             </a>
-
-            <a
-              href="#api"
-              className="rounded-full border border-[#101010]/25 px-5 py-3 text-sm transition hover:bg-[#101010] hover:text-white"
-            >
+            <a href="#api" className="rounded-full border border-[#101010]/25 px-5 py-3 text-sm transition hover:bg-[#101010] hover:text-white">
               Explore API <ArrowRight className="ml-1 inline h-4 w-4" />
             </a>
           </div>
@@ -123,8 +128,8 @@ export default function Home() {
 
       <section id="framework" className="mx-auto max-w-7xl px-6 py-16">
         <div className="border-y border-[#101010]/15 py-14">
-          <h2 className="max-w-3xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-            From single-objective safety to obligation conflict detection.
+          <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
+            A governance runtime, not another safety classifier.
           </h2>
 
           <div className="mt-10 grid gap-4 md:grid-cols-4">
@@ -134,21 +139,31 @@ export default function Home() {
               ["Collision detector", Zap],
               ["Audit artifacts", FileJson],
             ].map(([title, Icon]) => (
-              <div
-                key={title as string}
-                className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6"
-              >
+              <div key={title as string} className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
                 {(() => {
                   const C = Icon as any;
                   return <C className="mb-10 h-6 w-6 text-[#ff2a00]" />;
                 })()}
-
-                <h3 className="text-xl font-medium">
-                  {title as string}
-                </h3>
+                <h3 className="text-xl font-medium">{title as string}</h3>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-16">
+        <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
+          Architecture
+        </p>
+
+        <div className="mt-8 grid gap-4">
+          {architecture.map(([num, title, body]) => (
+            <div key={num} className="grid gap-4 rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6 md:grid-cols-[80px_280px_1fr]">
+              <div className="font-mono text-3xl text-[#ff2a00]">{num}</div>
+              <div className="text-2xl font-medium tracking-[-0.03em]">{title}</div>
+              <div className="text-lg leading-7 text-[#51473d]">{body}</div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -163,33 +178,23 @@ export default function Home() {
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {collisions.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-7"
-            >
-              <h3 className="font-mono text-sm uppercase tracking-widest">
-                {item.title}
-              </h3>
-
-              <p className="mt-5 text-lg leading-7 text-[#51473d]">
-                {item.body}
-              </p>
+            <div key={item.title} className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-7">
+              <h3 className="font-mono text-sm uppercase tracking-widest">{item.title}</h3>
+              <p className="mt-5 text-lg leading-7 text-[#51473d]">{item.body}</p>
+              <div className="mt-6 rounded-full bg-[#101010] px-4 py-2 text-sm text-[#f6f1e7] inline-flex">
+                {item.mitigation}
+              </div>
             </div>
           ))}
         </div>
       </section>
 
-      <section
-        id="python"
-        className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2"
-      >
+      <section id="python" className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2">
         <div>
           <Package className="mb-5 h-8 w-8 text-[#ff2a00]" />
-
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Python package.
           </h2>
-
           <p className="mt-6 text-lg leading-8 text-[#51473d]">
             Instrument agent workflows, register governance obligations,
             detect collisions, score externalities, and export audit logs.
@@ -215,17 +220,12 @@ print(report.recommended_mitigation)`}
         </pre>
       </section>
 
-      <section
-        id="api"
-        className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2"
-      >
+      <section id="api" className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2">
         <div>
           <Server className="mb-5 h-8 w-8 text-[#ff2a00]" />
-
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Hosted API.
           </h2>
-
           <p className="mt-6 text-lg leading-8 text-[#51473d]">
             Send workflow traces to EdgeCase and receive conflict reports,
             mitigation recommendations, and governance-ready JSON evidence.
@@ -242,32 +242,8 @@ print(report.recommended_mitigation)`}
         </pre>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <div className="rounded-[2rem] bg-[#101010] p-6 text-[#f6f1e7] md:p-10">
-          <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
-            Audit artifact
-          </p>
-
-          <pre className="overflow-x-auto text-sm leading-6">
-{`{
-  "case_id": "block_vs_escalate_001",
-  "triggered_obligations": [
-    "security.block",
-    "care.escalate"
-  ],
-  "collision": "block_vs_escalate",
-  "selected_mitigation": "constrain_and_escalate",
-  "externalities": {
-    "care_suppression_risk": 0.72,
-    "security_risk": 0.41,
-    "energy_cost": "medium"
-  }
-}`}
-          </pre>
-        </div>
-      </section>
-
       <section id="experiments" className="mx-auto max-w-7xl px-6 py-16">
+        <BarChart3 className="mb-5 h-8 w-8 text-[#ff2a00]" />
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
           Experiments
         </p>
@@ -278,13 +254,41 @@ print(report.recommended_mitigation)`}
 
         <div className="mt-10 flex flex-wrap gap-3">
           {metrics.map((metric) => (
-            <span
-              key={metric}
-              className="rounded-full border border-[#101010]/20 bg-[#fffaf0] px-4 py-2 text-sm"
-            >
+            <span key={metric} className="rounded-full border border-[#101010]/20 bg-[#fffaf0] px-4 py-2 text-sm">
               {metric}
             </span>
           ))}
+        </div>
+
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          <div className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
+            <div className="text-5xl font-semibold tracking-[-0.06em]">5+</div>
+            <p className="mt-3 text-[#51473d]">collision families in the initial benchmark</p>
+          </div>
+          <div className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
+            <div className="text-5xl font-semibold tracking-[-0.06em]">4</div>
+            <p className="mt-3 text-[#51473d]">single-objective baselines for ablation</p>
+          </div>
+          <div className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
+            <div className="text-5xl font-semibold tracking-[-0.06em]">JSON</div>
+            <p className="mt-3 text-[#51473d]">audit artifacts for every evaluated case</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="paper" className="mx-auto max-w-7xl px-6 py-16">
+        <div className="rounded-[2rem] bg-[#101010] p-8 text-[#f6f1e7] md:p-12">
+          <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
+            Paper artifact
+          </p>
+          <h2 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
+            Conflict-aware assurance for security, ethics, and energy trade-offs.
+          </h2>
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-[#d6cfc4]">
+            EdgeCase supports paired scenario evaluation, workflow trace instrumentation,
+            bounded mitigation strategies, and measurable controversy-oriented metrics
+            for agentic systems.
+          </p>
         </div>
       </section>
 

@@ -1,0 +1,23 @@
+[project]
+name = "edgecase"
+version = "0.1.0"
+description = "Conflict-aware assurance for agentic AI systems"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "pydantic>=2.0",
+  "typer>=0.12",
+  "rich>=13.0",
+  "fastapi>=0.110",
+  "uvicorn>=0.27"
+]
+
+[project.scripts]
+edgecase = "edgecase.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/edgecase"]
+
+[build-system]
+requires = ["hatchling>=1.18"]
+build-backend = "hatchling.build"
