@@ -1,4 +1,6 @@
 import Image from "next/image";
+import CollisionNetwork from "@/components/CollisionNetwork";
+
 import {
   ArrowRight,
   BarChart3,
@@ -95,6 +97,7 @@ export default function Home() {
           <a href="#framework">Framework</a>
           <a href="#python">Python</a>
           <a href="#api">API</a>
+          <a href="#simulation">Simulation</a>
           <a href="#experiments">Experiments</a>
           <a href="#paper">Paper</a>
         </div>
@@ -292,6 +295,11 @@ print(report.recommended_mitigation)`}
     "workflow": "identity_verification"
   }'`}
         </pre>
+      </section>
+
+
+      <section id="simulation" className="mx-auto max-w-7xl px-6 py-16">
+        <CollisionNetwork />
       </section>
 
       <section id="experiments" className="mx-auto max-w-7xl px-6 py-16">
