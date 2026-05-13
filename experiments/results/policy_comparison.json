@@ -1,0 +1,836 @@
+{
+  "summary": {
+    "strict_block": {
+      "cases": 9,
+      "care_suppression": 7.92,
+      "security_risk": 1.08,
+      "accessibility_burden": 3.96,
+      "privacy_exposure": 0.72,
+      "high_energy": 0,
+      "avg_care_suppression": 0.88,
+      "avg_security_risk": 0.12,
+      "avg_accessibility_burden": 0.44,
+      "avg_privacy_exposure": 0.08,
+      "high_energy_rate": 0.0
+    },
+    "always_escalate": {
+      "cases": 9,
+      "care_suppression": 1.6199999999999997,
+      "security_risk": 5.58,
+      "accessibility_burden": 1.98,
+      "privacy_exposure": 2.79,
+      "high_energy": 0,
+      "avg_care_suppression": 0.18,
+      "avg_security_risk": 0.62,
+      "avg_accessibility_burden": 0.22,
+      "avg_privacy_exposure": 0.31,
+      "high_energy_rate": 0.0
+    },
+    "always_verify": {
+      "cases": 9,
+      "care_suppression": 2.88,
+      "security_risk": 2.5200000000000005,
+      "accessibility_burden": 7.56,
+      "privacy_exposure": 1.6199999999999997,
+      "high_energy": 0,
+      "avg_care_suppression": 0.32,
+      "avg_security_risk": 0.28,
+      "avg_accessibility_burden": 0.84,
+      "avg_privacy_exposure": 0.18,
+      "high_energy_rate": 0.0
+    },
+    "maximum_review": {
+      "cases": 9,
+      "care_suppression": 1.89,
+      "security_risk": 1.44,
+      "accessibility_burden": 3.4199999999999995,
+      "privacy_exposure": 2.16,
+      "high_energy": 9,
+      "avg_care_suppression": 0.21,
+      "avg_security_risk": 0.16,
+      "avg_accessibility_burden": 0.38,
+      "avg_privacy_exposure": 0.24,
+      "high_energy_rate": 1.0
+    },
+    "edgecase_adaptive": {
+      "cases": 9,
+      "care_suppression": 2.16,
+      "security_risk": 3.03,
+      "accessibility_burden": 2.34,
+      "privacy_exposure": 0.0,
+      "high_energy": 0,
+      "avg_care_suppression": 0.24,
+      "avg_security_risk": 0.337,
+      "avg_accessibility_burden": 0.26,
+      "avg_privacy_exposure": 0.0,
+      "high_energy_rate": 0.0
+    }
+  },
+  "rows": [
+    {
+      "case_id": "banking_001",
+      "policy": "strict_block",
+      "signals": [
+        "fraud_risk",
+        "disability_signal"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "banking_001",
+      "policy": "always_escalate",
+      "signals": [
+        "fraud_risk",
+        "disability_signal"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "banking_001",
+      "policy": "always_verify",
+      "signals": [
+        "fraud_risk",
+        "disability_signal"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "banking_001",
+      "policy": "maximum_review",
+      "signals": [
+        "fraud_risk",
+        "disability_signal"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "banking_001",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "fraud_risk",
+        "disability_signal"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "adaptive_verification",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.35,
+        "accessibility_burden": 0.78,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "banking_002",
+      "policy": "strict_block",
+      "signals": [
+        "identity_risk",
+        "language_barrier"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "banking_002",
+      "policy": "always_escalate",
+      "signals": [
+        "identity_risk",
+        "language_barrier"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "banking_002",
+      "policy": "always_verify",
+      "signals": [
+        "identity_risk",
+        "language_barrier"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "banking_002",
+      "policy": "maximum_review",
+      "signals": [
+        "identity_risk",
+        "language_barrier"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "banking_002",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "identity_risk",
+        "language_barrier"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "adaptive_verification",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.35,
+        "accessibility_burden": 0.78,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "banking_003",
+      "policy": "strict_block",
+      "signals": [
+        "fraud_risk",
+        "distress"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "banking_003",
+      "policy": "always_escalate",
+      "signals": [
+        "fraud_risk",
+        "distress"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "banking_003",
+      "policy": "always_verify",
+      "signals": [
+        "fraud_risk",
+        "distress"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "banking_003",
+      "policy": "maximum_review",
+      "signals": [
+        "fraud_risk",
+        "distress"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "banking_003",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "fraud_risk",
+        "distress"
+      ],
+      "workflow": "banking",
+      "recommended_mitigation": "adaptive_verification",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.35,
+        "accessibility_burden": 0.78,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "crisis_001",
+      "policy": "strict_block",
+      "signals": [
+        "jailbreak",
+        "self_harm"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "crisis_001",
+      "policy": "always_escalate",
+      "signals": [
+        "jailbreak",
+        "self_harm"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "crisis_001",
+      "policy": "always_verify",
+      "signals": [
+        "jailbreak",
+        "self_harm"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "crisis_001",
+      "policy": "maximum_review",
+      "signals": [
+        "jailbreak",
+        "self_harm"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "crisis_001",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "jailbreak",
+        "self_harm"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "constrain_and_escalate",
+      "externalities": {
+        "care_suppression_risk": 0.72,
+        "security_risk": 0.41,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "crisis_002",
+      "policy": "strict_block",
+      "signals": [
+        "policy_evasion",
+        "coercion"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "crisis_002",
+      "policy": "always_escalate",
+      "signals": [
+        "policy_evasion",
+        "coercion"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "crisis_002",
+      "policy": "always_verify",
+      "signals": [
+        "policy_evasion",
+        "coercion"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "crisis_002",
+      "policy": "maximum_review",
+      "signals": [
+        "policy_evasion",
+        "coercion"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "crisis_002",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "policy_evasion",
+        "coercion"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "constrain_and_escalate",
+      "externalities": {
+        "care_suppression_risk": 0.72,
+        "security_risk": 0.41,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "crisis_003",
+      "policy": "strict_block",
+      "signals": [
+        "malicious_request",
+        "crisis"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "crisis_003",
+      "policy": "always_escalate",
+      "signals": [
+        "malicious_request",
+        "crisis"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "crisis_003",
+      "policy": "always_verify",
+      "signals": [
+        "malicious_request",
+        "crisis"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "crisis_003",
+      "policy": "maximum_review",
+      "signals": [
+        "malicious_request",
+        "crisis"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "crisis_003",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "malicious_request",
+        "crisis"
+      ],
+      "workflow": "crisis",
+      "recommended_mitigation": "constrain_and_escalate",
+      "externalities": {
+        "care_suppression_risk": 0.72,
+        "security_risk": 0.41,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "healthcare_001",
+      "policy": "strict_block",
+      "signals": [
+        "high_risk",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "healthcare_001",
+      "policy": "always_escalate",
+      "signals": [
+        "high_risk",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_001",
+      "policy": "always_verify",
+      "signals": [
+        "high_risk",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_001",
+      "policy": "maximum_review",
+      "signals": [
+        "high_risk",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "healthcare_001",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "high_risk",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "adaptive_depth",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.25,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_002",
+      "policy": "strict_block",
+      "signals": [
+        "uncertain",
+        "latency_constraint"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "healthcare_002",
+      "policy": "always_escalate",
+      "signals": [
+        "uncertain",
+        "latency_constraint"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_002",
+      "policy": "always_verify",
+      "signals": [
+        "uncertain",
+        "latency_constraint"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_002",
+      "policy": "maximum_review",
+      "signals": [
+        "uncertain",
+        "latency_constraint"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "healthcare_002",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "uncertain",
+        "latency_constraint"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "adaptive_depth",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.25,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_003",
+      "policy": "strict_block",
+      "signals": [
+        "regulated_advice",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "block",
+      "externalities": {
+        "care_suppression_risk": 0.88,
+        "security_risk": 0.12,
+        "accessibility_burden": 0.44,
+        "privacy_exposure": 0.08,
+        "energy_cost": "low"
+      }
+    },
+    {
+      "case_id": "healthcare_003",
+      "policy": "always_escalate",
+      "signals": [
+        "regulated_advice",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "escalate",
+      "externalities": {
+        "care_suppression_risk": 0.18,
+        "security_risk": 0.62,
+        "accessibility_burden": 0.22,
+        "privacy_exposure": 0.31,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_003",
+      "policy": "always_verify",
+      "signals": [
+        "regulated_advice",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "verify",
+      "externalities": {
+        "care_suppression_risk": 0.32,
+        "security_risk": 0.28,
+        "accessibility_burden": 0.84,
+        "privacy_exposure": 0.18,
+        "energy_cost": "medium"
+      }
+    },
+    {
+      "case_id": "healthcare_003",
+      "policy": "maximum_review",
+      "signals": [
+        "regulated_advice",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "increase_review",
+      "externalities": {
+        "care_suppression_risk": 0.21,
+        "security_risk": 0.16,
+        "accessibility_burden": 0.38,
+        "privacy_exposure": 0.24,
+        "energy_cost": "high"
+      }
+    },
+    {
+      "case_id": "healthcare_003",
+      "policy": "edgecase_adaptive",
+      "signals": [
+        "regulated_advice",
+        "compute_pressure"
+      ],
+      "workflow": "healthcare",
+      "recommended_mitigation": "adaptive_depth",
+      "externalities": {
+        "care_suppression_risk": 0.0,
+        "security_risk": 0.25,
+        "accessibility_burden": 0.0,
+        "privacy_exposure": 0.0,
+        "energy_cost": "medium"
+      }
+    }
+  ]
+}
