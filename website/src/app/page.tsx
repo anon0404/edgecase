@@ -43,11 +43,36 @@ const metrics = [
 ];
 
 const architecture = [
-  ["1", "Agent workflow", "Trace tool calls, routing, memory, gates, validators, and model decisions."],
-  ["2", "Obligation registry", "Represent security, care, privacy, fairness, accessibility, compliance, and energy as triggerable duties."],
-  ["3", "Collision detector", "Identify when valid obligations recommend incompatible actions."],
-  ["4", "Mitigation router", "Select bounded strategies instead of collapsing to allow/block behavior."],
-  ["5", "Audit artifact", "Export governance-ready evidence about triggered obligations, trade-offs, and externalities."],
+  {
+    number: "1",
+    title: "Agent workflow traces",
+    body: "Capture tool calls, routing decisions, memory access, validators, escalation pathways, and model interactions.",
+    icon: GitBranch,
+  },
+  {
+    number: "2",
+    title: "Obligation registry",
+    body: "Represent security, care, privacy, fairness, accessibility, compliance, and energy as interacting governance obligations.",
+    icon: ShieldCheck,
+  },
+  {
+    number: "3",
+    title: "Collision detection",
+    body: "Identify when valid obligations recommend incompatible actions such as block vs escalate or safety vs energy efficiency.",
+    icon: Zap,
+  },
+  {
+    number: "4",
+    title: "Mitigation routing",
+    body: "Apply bounded mitigation strategies rather than collapsing to binary allow/block decisions.",
+    icon: Server,
+  },
+  {
+    number: "5",
+    title: "Audit artifacts",
+    body: "Export governance-ready evidence showing triggered obligations, selected mitigations, and externalities.",
+    icon: FileJson,
+  },
 ];
 
 export default function Home() {
@@ -93,10 +118,17 @@ export default function Home() {
           </p>
 
           <div className="mt-10 flex flex-wrap gap-3">
-            <a href="#python" className="rounded-full bg-[#101010] px-5 py-3 text-sm text-white transition hover:bg-[#2a2a2a]">
+            <a
+              href="#python"
+              className="rounded-full bg-[#101010] px-5 py-3 text-sm text-white transition hover:bg-[#2a2a2a]"
+            >
               Install Python package
             </a>
-            <a href="#api" className="rounded-full border border-[#101010]/25 px-5 py-3 text-sm transition hover:bg-[#101010] hover:text-white">
+
+            <a
+              href="#api"
+              className="rounded-full border border-[#101010]/25 px-5 py-3 text-sm transition hover:bg-[#101010] hover:text-white"
+            >
               Explore API <ArrowRight className="ml-1 inline h-4 w-4" />
             </a>
           </div>
@@ -127,41 +159,42 @@ export default function Home() {
       </section>
 
       <section id="framework" className="mx-auto max-w-7xl px-6 py-16">
-        <div className="border-y border-[#101010]/15 py-14">
-          <h2 className="max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-            A governance runtime, not another safety classifier.
-          </h2>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
-            {[
-              ["Obligation registry", ShieldCheck],
-              ["Workflow traces", GitBranch],
-              ["Collision detector", Zap],
-              ["Audit artifacts", FileJson],
-            ].map(([title, Icon]) => (
-              <div key={title as string} className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
-                {(() => {
-                  const C = Icon as any;
-                  return <C className="mb-10 h-6 w-6 text-[#ff2a00]" />;
-                })()}
-                <h3 className="text-xl font-medium">{title as string}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16">
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
-          Architecture
+          Framework
         </p>
 
-        <div className="mt-8 grid gap-4">
-          {architecture.map(([num, title, body]) => (
-            <div key={num} className="grid gap-4 rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6 md:grid-cols-[80px_280px_1fr]">
-              <div className="font-mono text-3xl text-[#ff2a00]">{num}</div>
-              <div className="text-2xl font-medium tracking-[-0.03em]">{title}</div>
-              <div className="text-lg leading-7 text-[#51473d]">{body}</div>
+        <h2 className="mt-4 max-w-5xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
+          Conflict-aware assurance for agentic systems.
+        </h2>
+
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-[#51473d]">
+          EdgeCase combines workflow trace instrumentation,
+          obligation modeling, collision detection, mitigation
+          routing, and audit artifacts to surface governance
+          trade-offs in high-stakes AI systems.
+        </p>
+
+        <div className="mt-12 grid gap-4">
+          {architecture.map((item) => (
+            <div
+              key={item.number}
+              className="grid gap-6 rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6 md:grid-cols-[80px_80px_280px_1fr]"
+            >
+              <div className="font-mono text-3xl text-[#ff2a00]">
+                {item.number}
+              </div>
+
+              <div className="flex items-start">
+                <item.icon className="h-6 w-6 text-[#ff2a00]" />
+              </div>
+
+              <div className="text-2xl font-medium tracking-[-0.03em]">
+                {item.title}
+              </div>
+
+              <div className="text-lg leading-7 text-[#51473d]">
+                {item.body}
+              </div>
             </div>
           ))}
         </div>
@@ -178,10 +211,19 @@ export default function Home() {
 
         <div className="mt-10 grid gap-4 md:grid-cols-2">
           {collisions.map((item) => (
-            <div key={item.title} className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-7">
-              <h3 className="font-mono text-sm uppercase tracking-widest">{item.title}</h3>
-              <p className="mt-5 text-lg leading-7 text-[#51473d]">{item.body}</p>
-              <div className="mt-6 rounded-full bg-[#101010] px-4 py-2 text-sm text-[#f6f1e7] inline-flex">
+            <div
+              key={item.title}
+              className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-7"
+            >
+              <h3 className="font-mono text-sm uppercase tracking-widest">
+                {item.title}
+              </h3>
+
+              <p className="mt-5 text-lg leading-7 text-[#51473d]">
+                {item.body}
+              </p>
+
+              <div className="mt-6 inline-flex rounded-full bg-[#101010] px-4 py-2 text-sm text-[#f6f1e7]">
                 {item.mitigation}
               </div>
             </div>
@@ -189,12 +231,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="python" className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2">
+      <section
+        id="python"
+        className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2"
+      >
         <div>
           <Package className="mb-5 h-8 w-8 text-[#ff2a00]" />
+
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Python package.
           </h2>
+
           <p className="mt-6 text-lg leading-8 text-[#51473d]">
             Instrument agent workflows, register governance obligations,
             detect collisions, score externalities, and export audit logs.
@@ -220,12 +267,17 @@ print(report.recommended_mitigation)`}
         </pre>
       </section>
 
-      <section id="api" className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2">
+      <section
+        id="api"
+        className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2"
+      >
         <div>
           <Server className="mb-5 h-8 w-8 text-[#ff2a00]" />
+
           <h2 className="text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Hosted API.
           </h2>
+
           <p className="mt-6 text-lg leading-8 text-[#51473d]">
             Send workflow traces to EdgeCase and receive conflict reports,
             mitigation recommendations, and governance-ready JSON evidence.
@@ -244,6 +296,7 @@ print(report.recommended_mitigation)`}
 
       <section id="experiments" className="mx-auto max-w-7xl px-6 py-16">
         <BarChart3 className="mb-5 h-8 w-8 text-[#ff2a00]" />
+
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
           Experiments
         </p>
@@ -254,25 +307,13 @@ print(report.recommended_mitigation)`}
 
         <div className="mt-10 flex flex-wrap gap-3">
           {metrics.map((metric) => (
-            <span key={metric} className="rounded-full border border-[#101010]/20 bg-[#fffaf0] px-4 py-2 text-sm">
+            <span
+              key={metric}
+              className="rounded-full border border-[#101010]/20 bg-[#fffaf0] px-4 py-2 text-sm"
+            >
               {metric}
             </span>
           ))}
-        </div>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          <div className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
-            <div className="text-5xl font-semibold tracking-[-0.06em]">5+</div>
-            <p className="mt-3 text-[#51473d]">collision families in the initial benchmark</p>
-          </div>
-          <div className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
-            <div className="text-5xl font-semibold tracking-[-0.06em]">4</div>
-            <p className="mt-3 text-[#51473d]">single-objective baselines for ablation</p>
-          </div>
-          <div className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6">
-            <div className="text-5xl font-semibold tracking-[-0.06em]">JSON</div>
-            <p className="mt-3 text-[#51473d]">audit artifacts for every evaluated case</p>
-          </div>
         </div>
       </section>
 
@@ -281,13 +322,15 @@ print(report.recommended_mitigation)`}
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
             Paper artifact
           </p>
+
           <h2 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
             Conflict-aware assurance for security, ethics, and energy trade-offs.
           </h2>
+
           <p className="mt-6 max-w-3xl text-lg leading-8 text-[#d6cfc4]">
-            EdgeCase supports paired scenario evaluation, workflow trace instrumentation,
-            bounded mitigation strategies, and measurable controversy-oriented metrics
-            for agentic systems.
+            EdgeCase supports paired scenario evaluation, workflow trace
+            instrumentation, bounded mitigation strategies, and measurable
+            controversy-oriented metrics for agentic systems.
           </p>
         </div>
       </section>
