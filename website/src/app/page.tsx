@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CollisionNetwork from "@/components/CollisionNetwork";
+import TradeoffFrontier from "@/components/TradeoffFrontier";
 
 import {
   ArrowRight,
@@ -98,6 +99,7 @@ export default function Home() {
           <a href="#python">Python</a>
           <a href="#api">API</a>
           <a href="#simulation">Simulation</a>
+          <a href="#frontier">Tradeoffs</a>
           <a href="#experiments">Experiments</a>
           <a href="#paper">Paper</a>
         </div>
@@ -323,6 +325,11 @@ print(report.recommended_mitigation)`}
             </span>
           ))}
         </div>
+      </section>
+
+
+      <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">
+        <TradeoffFrontier />
       </section>
 
       <section id="paper" className="mx-auto max-w-7xl px-6 py-16">
