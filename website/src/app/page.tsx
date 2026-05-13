@@ -304,6 +304,9 @@ print(report.recommended_mitigation)`}
         <CollisionNetwork />
       </section>
 
+      <TradeoffFrontier />
+
+
       <section id="experiments" className="mx-auto max-w-7xl px-6 py-16">
         <BarChart3 className="mb-5 h-8 w-8 text-[#ff2a00]" />
 
@@ -325,6 +328,11 @@ print(report.recommended_mitigation)`}
             </span>
           ))}
         </div>
+      </section>
+
+
+      <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">
+        <TradeoffFrontier />
       </section>
 
 
