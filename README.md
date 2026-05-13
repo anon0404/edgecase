@@ -2,7 +2,7 @@
 
 <img src="website/public/edgecase-logo.png" alt="EdgeCase logo" width="170"/>
 
-### Conflict-aware assurance for agentic AI systems
+### Conflict-Aware Assurance for Agentic AI Systems
 
 EdgeCase detects and manages **boundary collisions** where valid governance obligations recommend incompatible actions:  
 **block vs escalate**, **verify vs accessibility**, **privacy vs safeguarding**, and **safety vs energy efficiency**.
