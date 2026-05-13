@@ -116,7 +116,7 @@ export default function TradeoffFrontier() {
       .attr("x", width / 2)
       .attr("y", height - 18)
       .attr("text-anchor", "middle")
-      .attr("font-size", 14)
+      .attr("font-size", 18)
       .attr("font-family", "monospace")
       .text("Security robustness");
 
@@ -126,15 +126,17 @@ export default function TradeoffFrontier() {
       .attr("x", -height / 2)
       .attr("y", 22)
       .attr("text-anchor", "middle")
-      .attr("font-size", 14)
+      .attr("font-size", 18)
       .attr("font-family", "monospace")
       .text("Care + accessibility preservation");
 
     svg
       .append("text")
-      .attr("x", width - 210)
-      .attr("y", 32)
-      .attr("font-size", 12)
+      .attr("x", width / 2)
+      .attr("y", 22)
+      .attr("text-anchor", "middle")
+      .attr("font-size", 16)
+      .attr("font-weight", 600)
       .attr("font-family", "monospace")
       .attr("fill", "#51473d")
       .text("Bubble size = energy penalty");

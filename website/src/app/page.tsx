@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CollisionNetwork from "@/components/CollisionNetwork";
 import TradeoffFrontier from "@/components/TradeoffFrontier";
+import GovernanceTrajectory from "@/components/GovernanceTrajectory";
 
 import {
   ArrowRight,
@@ -98,6 +99,7 @@ export default function Home() {
           <a href="#framework">Framework</a>
           <a href="#python">Python</a>
           <a href="#api">API</a>
+          <a href="#trajectory">Trajectory</a>
           <a href="#simulation">Simulation</a>
           <a href="#frontier">Tradeoffs</a>
           <a href="#experiments">Experiments</a>
@@ -304,6 +306,8 @@ print(report.recommended_mitigation)`}
         <CollisionNetwork />
       </section>
 
+      <GovernanceTrajectory />
+
       <TradeoffFrontier />
 
 
@@ -332,12 +336,10 @@ print(report.recommended_mitigation)`}
 
 
       <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">
-        <TradeoffFrontier />
       </section>
 
 
       <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">
-        <TradeoffFrontier />
       </section>
 
       <section id="paper" className="mx-auto max-w-7xl px-6 py-16">
