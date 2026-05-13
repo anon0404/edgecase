@@ -2,6 +2,7 @@ import Image from "next/image";
 import CollisionNetwork from "@/components/CollisionNetwork";
 import TradeoffFrontier from "@/components/TradeoffFrontier";
 import GovernanceTrajectory from "@/components/GovernanceTrajectory";
+import RuntimeReplay from "@/components/RuntimeReplay";
 
 import {
   ArrowRight,
@@ -99,6 +100,7 @@ export default function Home() {
           <a href="#framework">Framework</a>
           <a href="#python">Python</a>
           <a href="#api">API</a>
+          <a href="#runtime">Runtime</a>
           <a href="#trajectory">Trajectory</a>
           <a href="#simulation">Simulation</a>
           <a href="#frontier">Tradeoffs</a>
@@ -305,6 +307,8 @@ print(report.recommended_mitigation)`}
       <section id="simulation" className="mx-auto max-w-7xl px-6 py-16">
         <CollisionNetwork />
       </section>
+
+      <RuntimeReplay />
 
       <GovernanceTrajectory />
 
