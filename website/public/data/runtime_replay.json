@@ -1,0 +1,204 @@
+[
+  {
+    "workflow": "crisis",
+    "events": [
+      {
+        "timestamp": 1,
+        "node_id": "input",
+        "label": "User input",
+        "type": "input",
+        "signals": [],
+        "obligations": [],
+        "collision": null,
+        "mitigation": null,
+        "metrics": {
+          "security": 0.3,
+          "care": 0.7,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.1
+        }
+      },
+      {
+        "timestamp": 2,
+        "node_id": "classifier",
+        "label": "Risk classifier",
+        "type": "classifier",
+        "signals": [
+          "policy_evasion"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": null,
+        "metrics": {
+          "security": 0.3,
+          "care": 0.7,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.1
+        }
+      },
+      {
+        "timestamp": 3,
+        "node_id": "validator",
+        "label": "Safety validator",
+        "type": "validator",
+        "signals": [
+          "self_harm",
+          "policy_evasion"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": "constrain_and_escalate",
+        "metrics": {
+          "security": 0.3,
+          "care": 0.94,
+          "accessibility": 0.7,
+          "privacy": 0.32,
+          "energy": 0.25
+        }
+      },
+      {
+        "timestamp": 4,
+        "node_id": "care_router",
+        "label": "Adaptive mitigation router",
+        "type": "router",
+        "signals": [
+          "self_harm",
+          "policy_evasion"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": "constrain_and_escalate",
+        "metrics": {
+          "security": 0.3,
+          "care": 1.0,
+          "accessibility": 0.7,
+          "privacy": 0.44,
+          "energy": 0.4
+        }
+      },
+      {
+        "timestamp": 5,
+        "node_id": "audit",
+        "label": "Audit artifact export",
+        "type": "audit",
+        "signals": [
+          "self_harm",
+          "policy_evasion"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": "constrain_and_escalate",
+        "metrics": {
+          "security": 0.3,
+          "care": 1.0,
+          "accessibility": 0.7,
+          "privacy": 0.56,
+          "energy": 0.55
+        }
+      }
+    ]
+  },
+  {
+    "workflow": "banking",
+    "events": [
+      {
+        "timestamp": 1,
+        "node_id": "input",
+        "label": "Account access request",
+        "type": "input",
+        "signals": [],
+        "obligations": [],
+        "collision": null,
+        "mitigation": null,
+        "metrics": {
+          "security": 0.3,
+          "care": 0.7,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.1
+        }
+      },
+      {
+        "timestamp": 2,
+        "node_id": "fraud",
+        "label": "Fraud detector",
+        "type": "classifier",
+        "signals": [
+          "fraud_risk"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": null,
+        "metrics": {
+          "security": 0.48,
+          "care": 0.63,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.1
+        }
+      },
+      {
+        "timestamp": 3,
+        "node_id": "accessibility",
+        "label": "Accessibility evaluator",
+        "type": "validator",
+        "signals": [
+          "fraud_risk",
+          "language_barrier"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": "adaptive_verification",
+        "metrics": {
+          "security": 0.66,
+          "care": 0.56,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.25
+        }
+      },
+      {
+        "timestamp": 4,
+        "node_id": "router",
+        "label": "Adaptive verification router",
+        "type": "router",
+        "signals": [
+          "fraud_risk",
+          "language_barrier"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": "adaptive_verification",
+        "metrics": {
+          "security": 0.84,
+          "care": 0.49,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.4
+        }
+      },
+      {
+        "timestamp": 5,
+        "node_id": "audit",
+        "label": "Audit artifact export",
+        "type": "audit",
+        "signals": [
+          "fraud_risk",
+          "language_barrier"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": "adaptive_verification",
+        "metrics": {
+          "security": 1.0,
+          "care": 0.42,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.55
+        }
+      }
+    ]
+  }
+]
