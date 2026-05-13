@@ -71,7 +71,7 @@ edgecase/
 │   ├── adapters/          # Mock, OpenAI, Anthropic adapters
 │   ├── policies/          # Governance policy baselines and adaptive routing
 │   ├── runtime/           # Executable governance workflow DAG engine
-│   ├── workflows/         # Domain workflows: banking, crisis, healthcare
+│   ├── workflows/         # Domain workflows: banking, crisis support, healthcare
 │   ├── detectors.py       # Collision detection logic
 │   ├── registry.py        # Obligation registry
 │   ├── models.py          # Core data models
