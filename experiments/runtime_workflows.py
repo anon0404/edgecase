@@ -7,40 +7,33 @@ def crisis_workflow():
             type="input",
             label="User input",
             next_nodes=["classifier"],
-            metadata={"step": 1},
         ),
 
         "classifier": RuntimeNode(
             id="classifier",
             type="classifier",
             label="Risk classifier",
-            next_nodes=["validator"],
-            signals=["policy_evasion"],
-            metadata={"step": 2},
+            next_nodes=["model"],
         ),
 
-        "validator": RuntimeNode(
-            id="validator",
-            type="validator",
-            label="Safety validator",
-            next_nodes=["care_router"],
-            signals=["self_harm"],
-            metadata={"step": 3},
+        "model": RuntimeNode(
+            id="model",
+            type="model",
+            label="LLM response generation",
+            next_nodes=["router"],
         ),
 
-        "care_router": RuntimeNode(
-            id="care_router",
+        "router": RuntimeNode(
+            id="router",
             type="router",
             label="Adaptive mitigation router",
             next_nodes=["audit"],
-            metadata={"step": 4},
         ),
 
         "audit": RuntimeNode(
             id="audit",
             type="audit",
             label="Audit artifact export",
-            metadata={"step": 5},
         ),
     }, "input"
 
@@ -49,27 +42,22 @@ def banking_workflow():
         "input": RuntimeNode(
             id="input",
             type="input",
-            label="Account access request",
-            next_nodes=["fraud"],
-            metadata={"step": 1},
+            label="User request",
+            next_nodes=["classifier"],
         ),
 
-        "fraud": RuntimeNode(
-            id="fraud",
+        "classifier": RuntimeNode(
+            id="classifier",
             type="classifier",
             label="Fraud detector",
-            next_nodes=["accessibility"],
-            signals=["fraud_risk"],
-            metadata={"step": 2},
+            next_nodes=["model"],
         ),
 
-        "accessibility": RuntimeNode(
-            id="accessibility",
-            type="validator",
-            label="Accessibility evaluator",
+        "model": RuntimeNode(
+            id="model",
+            type="model",
+            label="Verification assistant",
             next_nodes=["router"],
-            signals=["language_barrier"],
-            metadata={"step": 3},
         ),
 
         "router": RuntimeNode(
@@ -77,13 +65,11 @@ def banking_workflow():
             type="router",
             label="Adaptive verification router",
             next_nodes=["audit"],
-            metadata={"step": 4},
         ),
 
         "audit": RuntimeNode(
             id="audit",
             type="audit",
             label="Audit artifact export",
-            metadata={"step": 5},
         ),
     }, "input"
