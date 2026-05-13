@@ -2,18 +2,24 @@ import json
 from pathlib import Path
 
 from edgecase import Registry, Trace, detect
-
+from edgecase.baselines import always_block, always_escalate, always_verify, strongest_stack
+from edgecase.metrics import summarize
 
 DATA = Path("benchmarks/paired_scenarios.jsonl")
+OUT = Path("experiments/results")
 
+POLICIES = {
+    "edgecase": lambda trace: detect(trace, Registry.default()),
+    "always_block": always_block,
+    "always_escalate": always_escalate,
+    "always_verify": always_verify,
+    "strongest_stack": strongest_stack,
+}
 
-def main():
-    registry = Registry.default()
+def evaluate_policy(name: str, fn, scenarios: list[dict]) -> dict:
     rows = []
 
-    for line in DATA.read_text().splitlines():
-        item = json.loads(line)
-
+    for item in scenarios:
         trace = Trace(
             signals=item["signals"],
             workflow=item["workflow"],
@@ -21,46 +27,45 @@ def main():
             tokens_estimate=item.get("tokens_estimate", 1000),
         )
 
-        report = detect(trace, registry)
+        report = fn(trace)
 
-        rows.append(
-            {
-                "id": item["id"],
-                "expected": item["expected_collision"],
-                "detected": report.collision_type,
-                "correct": item["expected_collision"] == report.collision_type,
-                "mitigation": report.recommended_mitigation,
-                "externalities": report.externalities.model_dump(),
-            }
-        )
+        rows.append({
+            "policy": name,
+            "id": item["id"],
+            "expected_collision": item["expected_collision"],
+            "detected_collision": report.collision_type,
+            "expected_mitigation": item["expected_mitigation"],
+            "recommended_mitigation": report.recommended_mitigation,
+            "correct_collision": report.collision_type == item["expected_collision"],
+            "correct_mitigation": report.recommended_mitigation == item["expected_mitigation"],
+            "externalities": report.externalities.model_dump(),
+            "audit": report.audit,
+        })
 
-    total = len(rows)
-    correct = sum(row["correct"] for row in rows)
+    return {
+        "policy": name,
+        "summary": summarize(rows),
+        "rows": rows,
+    }
 
-    Path("experiments/results").mkdir(parents=True, exist_ok=True)
-    Path("experiments/results/benchmark_results.json").write_text(
-        json.dumps(
-            {
-                "total": total,
-                "correct": correct,
-                "accuracy": correct / total if total else 0,
-                "rows": rows,
-            },
-            indent=2,
-        )
-    )
+def main():
+    scenarios = [json.loads(line) for line in DATA.read_text().splitlines()]
+    OUT.mkdir(parents=True, exist_ok=True)
 
-    print(
-        json.dumps(
-            {
-                "total": total,
-                "correct": correct,
-                "accuracy": correct / total if total else 0,
-            },
-            indent=2,
-        )
-    )
+    results = {
+        name: evaluate_policy(name, fn, scenarios)
+        for name, fn in POLICIES.items()
+    }
 
+    Path(OUT / "benchmark_results.json").write_text(json.dumps(results, indent=2))
+
+    summary = {
+        name: result["summary"]
+        for name, result in results.items()
+    }
+
+    Path(OUT / "summary.json").write_text(json.dumps(summary, indent=2))
+    print(json.dumps(summary, indent=2))
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,52 @@
+{
+  "edgecase": {
+    "total_cases": 9,
+    "collision_accuracy": 0.8888888888888888,
+    "mitigation_accuracy": 0.8888888888888888,
+    "avg_care_suppression_risk": 0.2577777777777778,
+    "avg_security_risk": 0.22444444444444445,
+    "avg_accessibility_burden": 0.17333333333333334,
+    "avg_privacy_exposure": 0.1288888888888889,
+    "high_energy_rate": 0.1111111111111111
+  },
+  "always_block": {
+    "total_cases": 9,
+    "collision_accuracy": 0,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression_risk": 0.85,
+    "avg_security_risk": 0.0,
+    "avg_accessibility_burden": 0.0,
+    "avg_privacy_exposure": 0.0,
+    "high_energy_rate": 0
+  },
+  "always_escalate": {
+    "total_cases": 9,
+    "collision_accuracy": 0,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression_risk": 0.0,
+    "avg_security_risk": 0.55,
+    "avg_accessibility_burden": 0.0,
+    "avg_privacy_exposure": 0.0,
+    "high_energy_rate": 0
+  },
+  "always_verify": {
+    "total_cases": 9,
+    "collision_accuracy": 0,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression_risk": 0.0,
+    "avg_security_risk": 0.0,
+    "avg_accessibility_burden": 0.8,
+    "avg_privacy_exposure": 0.0,
+    "high_energy_rate": 0
+  },
+  "strongest_stack": {
+    "total_cases": 9,
+    "collision_accuracy": 0,
+    "mitigation_accuracy": 0,
+    "avg_care_suppression_risk": 0.0,
+    "avg_security_risk": 0.15,
+    "avg_accessibility_burden": 0.45,
+    "avg_privacy_exposure": 0.0,
+    "high_energy_rate": 1
+  }
+}
