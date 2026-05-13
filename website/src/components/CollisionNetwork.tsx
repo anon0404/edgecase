@@ -24,19 +24,6 @@ type GraphLink = {
   weight: number;
 };
 
-type Aggregate = Record<
-  string,
-  {
-    count: number;
-    avg_severity: number;
-    avg_ambiguity: number;
-    avg_model_calls: number;
-    avg_tokens: number;
-    avg_latency_ms: number;
-    avg_externalities: Record<string, number>;
-  }
->;
-
 type Payload = {
   metadata: {
     name: string;
@@ -46,7 +33,7 @@ type Payload = {
   };
   nodes: GraphNode[];
   links: GraphLink[];
-  aggregate: Aggregate;
+  aggregate: Record<string, any>;
 };
 
 const typeColor: Record<NodeType, string> = {
@@ -56,11 +43,39 @@ const typeColor: Record<NodeType, string> = {
   mitigation: "#f59e0b",
 };
 
+const storySteps = [
+  {
+    title: "1. Signals enter the system",
+    body: "Agent workflows emit signals such as jailbreak risk, self-harm disclosure, fraud risk, language barriers, privacy sensitivity, or compute pressure.",
+  },
+  {
+    title: "2. Obligations activate",
+    body: "Each signal may trigger one or more governance obligations: security, care, privacy, accessibility, safeguarding, safety, or environmental efficiency.",
+  },
+  {
+    title: "3. Collisions appear",
+    body: "A boundary collision occurs when valid obligations recommend incompatible actions over the same case, such as block versus escalate or safety review versus compute reduction.",
+  },
+  {
+    title: "4. Mitigations route the case",
+    body: "EdgeCase selects bounded strategies such as constrain-and-escalate, adaptive verification, split logging, or adaptive-depth review.",
+  },
+  {
+    title: "5. Audit evidence is exported",
+    body: "The framework records triggered obligations, selected mitigation, and externalities so evaluation does not hide displaced harms.",
+  },
+];
+
 export default function CollisionNetwork() {
   const svgRef = useRef<SVGSVGElement | null>(null);
+  const zoomRef = useRef<any>(null);
+  const gRef = useRef<any>(null);
+
   const [data, setData] = useState<Payload | null>(null);
   const [selectedType, setSelectedType] = useState<NodeType | "all">("all");
   const [hovered, setHovered] = useState<GraphNode | null>(null);
+  const [selected, setSelected] = useState<GraphNode | null>(null);
+  const [storyIndex, setStoryIndex] = useState(0);
 
   useEffect(() => {
     fetch("/data/collision_network.json")
@@ -106,14 +121,27 @@ export default function CollisionNetwork() {
       .attr("role", "img")
       .attr("aria-label", "Interactive EdgeCase collision network");
 
-    const background = root
+    root
       .append("rect")
       .attr("width", width)
       .attr("height", height)
       .attr("rx", 28)
       .attr("fill", "#fffaf0");
 
-    const link = root
+    const g = root.append("g");
+    gRef.current = g;
+
+    const zoom = d3
+      .zoom()
+      .scaleExtent([0.35, 4])
+      .on("zoom", (event) => {
+        g.attr("transform", event.transform);
+      });
+
+    zoomRef.current = zoom;
+    root.call(zoom);
+
+    const link = g
       .append("g")
       .attr("stroke", "#101010")
       .attr("stroke-opacity", 0.16)
@@ -122,18 +150,19 @@ export default function CollisionNetwork() {
       .join("line")
       .attr("stroke-width", (d) => Math.max(1, Math.sqrt(d.weight)));
 
-    const node = root
+    const node = g
       .append("g")
       .selectAll("circle")
       .data(nodes)
       .join("circle")
-      .attr("r", (d) => Math.min(24, 5 + Math.sqrt(d.weight) * 2.4))
+      .attr("r", (d) => Math.min(26, 5 + Math.sqrt(d.weight) * 2.5))
       .attr("fill", (d) => typeColor[d.type])
       .attr("stroke", "#fffaf0")
       .attr("stroke-width", 2)
       .style("cursor", "grab")
       .on("mouseenter", (_, d) => setHovered(d))
       .on("mouseleave", () => setHovered(null))
+      .on("click", (_, d) => setSelected(d))
       .call(
         d3
           .drag<SVGCircleElement, GraphNode>()
@@ -153,7 +182,7 @@ export default function CollisionNetwork() {
           })
       );
 
-    const label = root
+    const label = g
       .append("g")
       .selectAll("text")
       .data(nodes.filter((d) => d.type === "collision" || d.weight > 18))
@@ -180,7 +209,7 @@ export default function CollisionNetwork() {
             return 80;
           })
       )
-      .force("charge", d3.forceManyBody().strength(-210))
+      .force("charge", d3.forceManyBody().strength(-220))
       .force("center", d3.forceCenter(width / 2, height / 2))
       .force("collision", d3.forceCollide<GraphNode>().radius((d) => 18 + Math.sqrt(d.weight) * 2))
       .on("tick", () => {
@@ -197,9 +226,24 @@ export default function CollisionNetwork() {
 
     return () => {
       simulation.stop();
-      background.remove();
     };
   }, [filtered]);
+
+  function zoomBy(factor: number) {
+    if (!svgRef.current || !zoomRef.current) return;
+    d3.select(svgRef.current)
+      .transition()
+      .duration(250)
+      .call(zoomRef.current.scaleBy, factor);
+  }
+
+  function resetZoom() {
+    if (!svgRef.current || !zoomRef.current) return;
+    d3.select(svgRef.current)
+      .transition()
+      .duration(300)
+      .call(zoomRef.current.transform, d3.zoomIdentity);
+  }
 
   if (!data) {
     return (
@@ -209,76 +253,164 @@ export default function CollisionNetwork() {
     );
   }
 
+  const activeNode = selected || hovered;
+  const step = storySteps[storyIndex];
+
   return (
     <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-5">
-      <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+      <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
             Interactive simulation
           </p>
-          <h3 className="mt-2 text-3xl font-semibold tracking-[-0.04em]">
-            Boundary collision network
+
+          <h3 className="mt-3 text-4xl font-semibold tracking-[-0.05em]">
+            How boundary collisions emerge.
           </h3>
-          <p className="mt-3 max-w-2xl text-[#51473d]">
-            {data.metadata.cases} simulated agentic cases connect signals,
-            obligations, collision types, and mitigation routes.
-          </p>
-        </div>
 
-        <div className="flex flex-wrap gap-2">
-          {(["all", "signal", "collision", "obligation", "mitigation"] as const).map((type) => (
-            <button
-              key={type}
-              onClick={() => setSelectedType(type)}
-              className={`rounded-full border px-3 py-2 text-xs capitalize transition ${
-                selectedType === type
-                  ? "border-[#101010] bg-[#101010] text-[#f6f1e7]"
-                  : "border-[#101010]/20 bg-transparent text-[#101010]"
-              }`}
-            >
-              {type}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_280px]">
-        <svg ref={svgRef} className="min-h-[420px] w-full rounded-[1.5rem]" />
-
-        <aside className="rounded-[1.5rem] bg-[#f6f1e7] p-5">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
-            Node detail
+          <p className="mt-4 text-lg leading-8 text-[#51473d]">
+            This network turns the paper’s core claim into an interactive
+            simulation: agentic systems do not only fail by violating one rule;
+            they encounter cases where multiple valid obligations point in
+            different directions.
           </p>
 
-          {hovered ? (
-            <div className="mt-4">
-              <div className="text-xl font-semibold">{hovered.label}</div>
-              <div className="mt-2 font-mono text-xs uppercase text-[#51473d]">
-                {hovered.type}
-              </div>
-              <div className="mt-4 text-sm text-[#51473d]">
-                Frequency weight: {hovered.weight}
-              </div>
-            </div>
-          ) : (
-            <p className="mt-4 text-sm leading-6 text-[#51473d]">
-              Hover over a node to inspect its type and frequency in the
-              simulated benchmark.
+          <div className="mt-8 rounded-[1.5rem] bg-[#f6f1e7] p-5">
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
+              Story mode
             </p>
-          )}
 
-          <div className="mt-8 space-y-3">
-            {(Object.keys(typeColor) as NodeType[]).map((type) => (
-              <div key={type} className="flex items-center gap-3 text-sm capitalize">
-                <span
-                  className="h-3 w-3 rounded-full"
-                  style={{ backgroundColor: typeColor[type] }}
+            <h4 className="mt-3 text-2xl font-semibold tracking-[-0.03em]">
+              {step.title}
+            </h4>
+
+            <p className="mt-3 leading-7 text-[#51473d]">{step.body}</p>
+
+            <div className="mt-5 flex gap-2">
+              {storySteps.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setStoryIndex(i)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    storyIndex === i ? "w-9 bg-[#ff2a00]" : "w-2.5 bg-[#101010]/20"
+                  }`}
+                  aria-label={`Story step ${i + 1}`}
                 />
-                {type}
-              </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-3">
+            {Object.entries(data.aggregate).map(([kind, value]) => (
+              <button
+                key={kind}
+                onClick={() => setSelectedType("collision")}
+                className="rounded-2xl border border-[#101010]/15 bg-[#fffaf0] p-4 text-left transition hover:border-[#ff2a00]"
+              >
+                <div className="font-mono text-xs uppercase text-[#ff2a00]">
+                  {kind.replaceAll("_", " ")}
+                </div>
+                <div className="mt-2 text-2xl font-semibold">{value.count}</div>
+                <div className="text-xs text-[#51473d]">
+                  avg severity {value.avg_severity}
+                </div>
+              </button>
             ))}
           </div>
-        </aside>
+        </div>
+
+        <div>
+          <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap gap-2">
+              {(["all", "signal", "collision", "obligation", "mitigation"] as const).map((type) => (
+                <button
+                  key={type}
+                  onClick={() => setSelectedType(type)}
+                  className={`rounded-full border px-3 py-2 text-xs capitalize transition ${
+                    selectedType === type
+                      ? "border-[#101010] bg-[#101010] text-[#f6f1e7]"
+                      : "border-[#101010]/20 bg-transparent text-[#101010]"
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex gap-2">
+              <button
+                onClick={() => zoomBy(1.25)}
+                className="rounded-full border border-[#101010]/20 px-3 py-2 text-xs"
+              >
+                +
+              </button>
+              <button
+                onClick={() => zoomBy(0.8)}
+                className="rounded-full border border-[#101010]/20 px-3 py-2 text-xs"
+              >
+                −
+              </button>
+              <button
+                onClick={resetZoom}
+                className="rounded-full border border-[#101010]/20 px-3 py-2 text-xs"
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+
+          <svg ref={svgRef} className="min-h-[460px] w-full rounded-[1.5rem]" />
+
+          <div className="mt-4 grid gap-4 md:grid-cols-[1fr_260px]">
+            <div className="rounded-[1.5rem] bg-[#f6f1e7] p-5">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
+                How to read this
+              </p>
+              <p className="mt-3 text-sm leading-6 text-[#51473d]">
+                Grey nodes are workflow signals, black nodes are governance
+                obligations, red nodes are boundary collisions, and amber nodes
+                are bounded mitigation strategies. Dense connections show where
+                single-objective safety policies are most likely to displace
+                harm into another domain.
+              </p>
+            </div>
+
+            <aside className="rounded-[1.5rem] bg-[#f6f1e7] p-5">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
+                Node detail
+              </p>
+
+              {activeNode ? (
+                <div className="mt-4">
+                  <div className="text-xl font-semibold">{activeNode.label}</div>
+                  <div className="mt-2 font-mono text-xs uppercase text-[#51473d]">
+                    {activeNode.type}
+                  </div>
+                  <div className="mt-4 text-sm text-[#51473d]">
+                    Frequency weight: {activeNode.weight}
+                  </div>
+                </div>
+              ) : (
+                <p className="mt-4 text-sm leading-6 text-[#51473d]">
+                  Hover or click a node to inspect its role in the simulated
+                  governance conflict network.
+                </p>
+              )}
+
+              <div className="mt-8 space-y-3">
+                {(Object.keys(typeColor) as NodeType[]).map((type) => (
+                  <div key={type} className="flex items-center gap-3 text-sm capitalize">
+                    <span
+                      className="h-3 w-3 rounded-full"
+                      style={{ backgroundColor: typeColor[type] }}
+                    />
+                    {type}
+                  </div>
+                ))}
+              </div>
+            </aside>
+          </div>
+        </div>
       </div>
     </div>
   );
