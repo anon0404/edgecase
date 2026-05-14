@@ -41,7 +41,7 @@
       {
         "timestamp": 3,
         "node_id": "model",
-        "label": "LLM response generation",
+        "label": "LLM generation",
         "type": "model",
         "signals": [
           "policy_evasion"
@@ -54,13 +54,13 @@
           "care": 0.7,
           "accessibility": 0.7,
           "privacy": 0.2,
-          "energy": 0.28
+          "energy": 0.26
         }
       },
       {
         "timestamp": 4,
         "node_id": "router",
-        "label": "Adaptive mitigation router",
+        "label": "Governance router",
         "type": "router",
         "signals": [
           "policy_evasion"
@@ -73,11 +73,30 @@
           "care": 0.7,
           "accessibility": 0.7,
           "privacy": 0.2,
-          "energy": 0.46
+          "energy": 0.42
         }
       },
       {
         "timestamp": 5,
+        "node_id": "response",
+        "label": "Standard response",
+        "type": "audit",
+        "signals": [
+          "policy_evasion"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": null,
+        "metrics": {
+          "security": 0.3,
+          "care": 0.7,
+          "accessibility": 0.7,
+          "privacy": 0.2,
+          "energy": 0.58
+        }
+      },
+      {
+        "timestamp": 6,
         "node_id": "audit",
         "label": "Audit artifact export",
         "type": "audit",
@@ -92,7 +111,7 @@
           "care": 0.7,
           "accessibility": 0.7,
           "privacy": 0.2,
-          "energy": 0.64
+          "energy": 0.74
         }
       }
     ]
@@ -103,7 +122,7 @@
       {
         "timestamp": 1,
         "node_id": "input",
-        "label": "User request",
+        "label": "Account request",
         "type": "input",
         "signals": [],
         "obligations": [],
@@ -131,7 +150,7 @@
         "metrics": {
           "security": 0.48,
           "care": 0.7,
-          "accessibility": 0.58,
+          "accessibility": 0.56,
           "privacy": 0.2,
           "energy": 0.1
         }
@@ -150,15 +169,15 @@
         "metrics": {
           "security": 0.66,
           "care": 0.7,
-          "accessibility": 0.46,
+          "accessibility": 0.42,
           "privacy": 0.2,
-          "energy": 0.28
+          "energy": 0.26
         }
       },
       {
         "timestamp": 4,
         "node_id": "router",
-        "label": "Adaptive verification router",
+        "label": "Verification router",
         "type": "router",
         "signals": [
           "fraud_risk"
@@ -169,15 +188,15 @@
         "metrics": {
           "security": 0.84,
           "care": 0.7,
-          "accessibility": 0.34,
+          "accessibility": 0.28,
           "privacy": 0.2,
-          "energy": 0.46
+          "energy": 0.42
         }
       },
       {
         "timestamp": 5,
-        "node_id": "audit",
-        "label": "Audit artifact export",
+        "node_id": "verification",
+        "label": "Adaptive verification",
         "type": "audit",
         "signals": [
           "fraud_risk"
@@ -188,9 +207,28 @@
         "metrics": {
           "security": 1.0,
           "care": 0.7,
-          "accessibility": 0.22,
+          "accessibility": 0.14,
           "privacy": 0.2,
-          "energy": 0.64
+          "energy": 0.58
+        }
+      },
+      {
+        "timestamp": 6,
+        "node_id": "audit",
+        "label": "Audit export",
+        "type": "audit",
+        "signals": [
+          "fraud_risk"
+        ],
+        "obligations": [],
+        "collision": null,
+        "mitigation": null,
+        "metrics": {
+          "security": 1.0,
+          "care": 0.7,
+          "accessibility": 0.0,
+          "privacy": 0.2,
+          "energy": 0.74
         }
       }
     ]

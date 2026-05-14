@@ -16,16 +16,18 @@ class RuntimeContext:
             "model_calls": 0,
         }
 
+        self.selected_route = None
+
 class BaseExecutor:
     name = "base"
 
-    def execute(self, context: RuntimeContext, node):
+    def execute(self, context, node):
         raise NotImplementedError
 
 class InputExecutor(BaseExecutor):
     name = "input"
 
-    def execute(self, context: RuntimeContext, node):
+    def execute(self, context, node):
         context.outputs[node.id] = {
             "prompt": context.prompt,
         }
@@ -33,7 +35,7 @@ class InputExecutor(BaseExecutor):
 class ClassifierExecutor(BaseExecutor):
     name = "classifier"
 
-    def execute(self, context: RuntimeContext, node):
+    def execute(self, context, node):
         prompt = context.prompt.lower()
 
         detected = []
@@ -60,9 +62,9 @@ class ClassifierExecutor(BaseExecutor):
             detected.append("self_harm")
 
         if any(x in prompt for x in [
-            "urgent medical",
-            "dosage",
             "medical advice",
+            "dosage",
+            "urgent medical",
         ]):
             detected.append("high_risk")
 
@@ -78,7 +80,7 @@ class ModelExecutor(BaseExecutor):
     def __init__(self):
         self.adapter = MockAdapter()
 
-    def execute(self, context: RuntimeContext, node):
+    def execute(self, context, node):
         result = self.adapter.generate(
             prompt=context.prompt
         )
@@ -98,41 +100,51 @@ class ModelExecutor(BaseExecutor):
 class RouterExecutor(BaseExecutor):
     name = "router"
 
-    def execute(self, context: RuntimeContext, node):
+    def execute(self, context, node):
         signals = list(set(context.signals))
 
         if (
             "policy_evasion" in signals
             and "self_harm" in signals
         ):
-            mitigation = "constrain_and_escalate"
+            route = "escalate"
 
-        elif (
-            "fraud_risk" in signals
-            and "language_barrier" in signals
-        ):
-            mitigation = "adaptive_verification"
+            mitigation = (
+                "constrain_and_escalate"
+            )
 
-        elif (
-            "high_risk" in signals
-            and "compute_pressure" in signals
-        ):
+        elif "fraud_risk" in signals:
+            route = "verify"
+
+            mitigation = (
+                "adaptive_verification"
+            )
+
+        elif "high_risk" in signals:
+            route = "review"
+
             mitigation = "adaptive_depth"
 
         else:
+            route = "respond"
+
             mitigation = "standard_response"
 
+        context.selected_route = route
+
         context.outputs[node.id] = {
+            "route": route,
             "selected_mitigation": mitigation,
         }
 
 class AuditExecutor(BaseExecutor):
     name = "audit"
 
-    def execute(self, context: RuntimeContext, node):
+    def execute(self, context, node):
         context.outputs[node.id] = {
             "signals": list(set(context.signals)),
             "metrics": context.metrics,
+            "route_taken": context.selected_route,
         }
 
 EXECUTOR_MAP = {

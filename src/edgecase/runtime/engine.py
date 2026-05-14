@@ -46,75 +46,134 @@ class WorkflowRuntime:
 
             node = self.nodes[current]
 
-            executor = EXECUTOR_MAP.get(node.type)
+            executor = EXECUTOR_MAP.get(
+                node.type
+            )
 
             if executor:
-                executor.execute(context, node)
+                executor.execute(
+                    context,
+                    node,
+                )
 
             trace = Trace(
                 signals=context.signals,
                 workflow="runtime_workflow",
-                model_calls=context.metrics["model_calls"],
-                tokens_estimate=context.metrics["tokens"],
+                model_calls=context.metrics[
+                    "model_calls"
+                ],
+                tokens_estimate=context.metrics[
+                    "tokens"
+                ],
             )
 
-            result = detect(trace, self.registry)
+            result = detect(
+                trace,
+                self.registry,
+            )
 
-            if "fraud_risk" in context.signals:
+            if (
+                "fraud_risk"
+                in context.signals
+            ):
                 security += 0.18
-                accessibility -= 0.12
+                accessibility -= 0.14
 
-            if "self_harm" in context.signals:
+            if (
+                "self_harm"
+                in context.signals
+            ):
                 care += 0.22
                 privacy += 0.10
 
-            if context.metrics["model_calls"] > 0:
-                energy += 0.18
+            if (
+                context.metrics[
+                    "model_calls"
+                ] > 0
+            ):
+                energy += 0.16
 
-            if result.collision_detected:
+            if (
+                result.collision_detected
+            ):
                 energy += 0.12
 
             event = RuntimeEvent(
                 timestamp=step,
+
                 node_id=node.id,
+
                 label=node.label,
+
                 type=node.type,
-                active_signals=list(set(context.signals)),
+
+                active_signals=list(
+                    set(context.signals)
+                ),
+
                 obligations=result.audit.get(
                     "obligations",
                     [],
                 ),
+
                 collision=result.audit.get(
                     "collision"
                 ),
+
                 mitigation=result.recommended_mitigation,
+
+                route_taken=context.selected_route,
+
                 metrics={
                     "security": round(
-                        min(security, 1.0), 3
+                        min(security, 1.0),
+                        3,
                     ),
+
                     "care": round(
-                        min(care, 1.0), 3
+                        min(care, 1.0),
+                        3,
                     ),
+
                     "accessibility": round(
-                        max(accessibility, 0.0), 3
+                        max(
+                            accessibility,
+                            0.0,
+                        ),
+                        3,
                     ),
+
                     "privacy": round(
-                        min(privacy, 1.0), 3
+                        min(privacy, 1.0),
+                        3,
                     ),
+
                     "energy": round(
-                        min(energy, 1.0), 3
+                        min(energy, 1.0),
+                        3,
                     ),
                 },
             )
 
             events.append(event)
 
-            next_nodes = node.next_nodes
+            next_node = None
 
-            current = (
-                next_nodes[0]
-                if next_nodes
-                else None
-            )
+            if (
+                node.conditional_routes
+                and context.selected_route
+            ):
+                next_node = (
+                    node.conditional_routes.get(
+                        context.selected_route
+                    )
+                )
+
+            elif node.next_nodes:
+                next_node = (
+                    node.next_nodes[0]
+                )
+
+            current = next_node
 
         return events

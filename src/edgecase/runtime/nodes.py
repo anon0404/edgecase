@@ -1,15 +1,18 @@
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 import uuid
-import time
 
 @dataclass
 class RuntimeNode:
     id: str
+
     type: str
+
     label: str
 
     next_nodes: List[str] = field(default_factory=list)
+
+    conditional_routes: Dict[str, str] = field(default_factory=dict)
 
     signals: List[str] = field(default_factory=list)
 
@@ -18,8 +21,11 @@ class RuntimeNode:
 @dataclass
 class RuntimeEvent:
     timestamp: float
+
     node_id: str
+
     label: str
+
     type: str
 
     active_signals: List[str]
@@ -32,4 +38,8 @@ class RuntimeEvent:
 
     metrics: Dict
 
-    event_id: str = field(default_factory=lambda: str(uuid.uuid4()))
+    route_taken: Optional[str] = None
+
+    event_id: str = field(
+        default_factory=lambda: str(uuid.uuid4())
+    )
