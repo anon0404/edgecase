@@ -1,86 +1,81 @@
-<div align="right">
+# EdgeCase
 
-<img src="website/public/edgecase-logo.png" alt="EdgeCase logo" width="170"/>
+Conflict-aware assurance for security, ethics, and energy trade-offs in agentic systems.
 
-### Conflict-Aware Assurance for Agentic AI Systems
+EdgeCase models governance as interacting obligations and detects boundary collisions where legitimate objectives recommend incompatible actions, such as block versus escalate, verify versus accessibility, privacy versus safeguarding, or safety versus energy efficiency.
 
-EdgeCase detects and manages **boundary collisions** where valid governance obligations recommend incompatible actions:  
-**block vs escalate**, **verify vs accessibility**, **privacy vs safeguarding**, and **safety vs energy efficiency**.
+## Architecture
 
-<br/>
+Agent Workflow
+→ Trace Instrumentation
+→ Obligation Registry
+→ Collision Detector
+→ Mitigation Router
+→ Audit Artifact
+→ Evaluation + Visualization
 
-![Python](https://img.shields.io/badge/python-3.10%2B-101010?style=for-the-badge&logo=python)
-![TypeScript](https://img.shields.io/badge/typescript-website-101010?style=for-the-badge&logo=typescript)
-![Next.js](https://img.shields.io/badge/next.js-vercel-101010?style=for-the-badge&logo=nextdotjs)
-![FastAPI](https://img.shields.io/badge/fastapi-api-101010?style=for-the-badge&logo=fastapi)
-![D3](https://img.shields.io/badge/d3-visualizations-ff2a00?style=for-the-badge&logo=d3dotjs)
-![Status](https://img.shields.io/badge/status-research_artifact-ff2a00?style=for-the-badge)
+## Install
 
-</div>
+python -m pip install -e .
 
----
+## Minimal example
 
-## Overview
+from edgecase import Registry, Trace, detect
 
-Agentic AI systems are often evaluated as if security, fairness, privacy, accessibility, care, and efficiency were separable objectives. In high-stakes settings, they are not.
+registry = Registry.default()
 
-A single signal may indicate:
+trace = Trace(
+    signals=["jailbreak", "self_harm"],
+    workflow="assistant_response"
+)
 
-- a jailbreak attempt,
-- a vulnerable user in crisis,
-- a fraud pattern,
-- a privacy-sensitive disclosure,
-- or a case requiring costly oversight.
+report = detect(trace, registry)
+print(report.model_dump_json(indent=2))
 
-EdgeCase models governance as interacting obligations and detects moments where legitimate objectives recommend incompatible interventions.
+## Run experiments
 
----
+./experiments/run_all.sh
 
-## Core Idea
+## Run real-model evaluation
 
-Most safety evaluations ask:
+EdgeCase supports model-backed evaluation across Anthropic Claude, Google Gemini, and Qwen through Ollama.
 
-> Did the system violate a rule?
+### Mock
 
-EdgeCase asks:
+EDGECASE_PROVIDER=mock EDGECASE_LIMIT=50 python experiments/run_real_model_evaluation.py
 
-> Which obligations were active, did they conflict, what mitigation was selected, and what harms were displaced elsewhere?
+### Anthropic Claude
 
----
+export EDGECASE_PROVIDER=anthropic
+export EDGECASE_MODEL=claude-sonnet-4-5
+export ANTHROPIC_API_KEY=YOUR_KEY
+python experiments/run_real_model_evaluation.py
 
-## What EdgeCase Provides
+### Google Gemini
 
-| Component | Purpose |
-|---|---|
-| **Obligation Registry** | Models security, care, privacy, fairness, accessibility, compliance, and energy as triggerable governance obligations. |
-| **Collision Detector** | Detects incompatible obligation pairs such as `security.block` vs `care.escalate`. |
-| **Policy Engine** | Compares strict block, escalation-heavy, verification-heavy, maximum-review, and adaptive EdgeCase policies. |
-| **Workflow Runtime** | Executes replayable governance DAGs with node-level runtime traces. |
-| **Model Adapters** | Supports mock/reproducible runs and real-model adapters for model-backed workflows. |
-| **Experiment Harness** | Generates benchmark results, policy comparisons, figures, and website-ready JSON. |
-| **Interactive Website** | Provides D3 visualizations for collision networks, tradeoff frontiers, trajectories, and runtime replay. |
-| **API Prototype** | Exposes a FastAPI `/v1/detect` endpoint for collision detection. |
+export EDGECASE_PROVIDER=gemini
+export EDGECASE_MODEL=gemini-2.5-pro
+export GEMINI_API_KEY=YOUR_KEY
+python experiments/run_real_model_evaluation.py
 
----
+### Qwen through Ollama
 
-## Repository Structure
+ollama pull qwen2.5:7b
+export EDGECASE_PROVIDER=qwen
+export EDGECASE_MODEL=qwen2.5:7b
+python experiments/run_real_model_evaluation.py
 
-```text
-edgecase/
-├── src/edgecase/
-│   ├── adapters/          # Mock, OpenAI, Anthropic adapters
-│   ├── policies/          # Governance policy baselines and adaptive routing
-│   ├── runtime/           # Executable governance workflow DAG engine
-│   ├── workflows/         # Domain workflows: banking, crisis support, healthcare
-│   ├── detectors.py       # Collision detection logic
-│   ├── registry.py        # Obligation registry
-│   ├── models.py          # Core data models
-│   └── metrics.py         # Evaluation metrics
-│
-├── experiments/           # Experiment runners and artifact generators
-├── benchmarks/            # Paired scenario benchmark cases
-├── datasets/              # Workflow and model cases
-├── api/                   # FastAPI prototype
-├── website/               # Next.js + D3 website
-├── docs/                  # Concept and API docs
-└── tests/                 # Unit tests
+## Repository structure
+
+src/edgecase/              Core Python package
+src/edgecase/runtime/      Runtime DAG execution engine
+src/edgecase/benchmark/    Benchmark generation
+experiments/               Evaluation scripts
+datasets/                  Generated and hand-authored cases
+website/                   Vercel site
+docs/                      Methodology and reproducibility docs
+tests/                     Unit tests
+
+## Research framing
+
+EdgeCase is not a model leaderboard. It evaluates how governance objectives interact during agentic execution and whether mitigation strategies externalize harm across security, care, accessibility, privacy, and environmental dimensions.
