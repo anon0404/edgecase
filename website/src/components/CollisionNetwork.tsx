@@ -11,6 +11,8 @@ type GraphNode = {
   label: string;
   type: NodeType;
   weight: number;
+  prevalence?: number;
+  display_value?: string;
   x?: number;
   y?: number;
   fx?: number | null;
@@ -187,7 +189,11 @@ export default function CollisionNetwork() {
       .selectAll("text")
       .data(nodes.filter((d) => d.type === "collision" || d.weight > 18))
       .join("text")
-      .text((d) => d.label)
+      .text((d) =>
+        d.type === "collision" && d.display_value
+          ? `${d.label} · ${d.display_value}`
+          : d.label
+      )
       .attr("font-size", 11)
       .attr("font-family", "monospace")
       .attr("fill", "#101010")
@@ -265,14 +271,11 @@ export default function CollisionNetwork() {
           </p>
 
           <h3 className="mt-3 text-4xl font-semibold tracking-[-0.05em]">
-            How boundary collisions emerge.
+            How signals become obligations, collisions, and mitigations.
           </h3>
 
           <p className="mt-4 text-lg leading-8 text-[#51473d]">
-            This network turns the paper’s core claim into an interactive
-            simulation: agentic systems do not only fail by violating one rule;
-            they encounter cases where multiple valid obligations point in
-            different directions.
+            This network introduces the internal mechanics of EdgeCase. Signals enter from agent workflows, activate governance obligations, form boundary collisions, and route toward bounded mitigations. Collision percentages indicate how often each collision family appears across simulated workflow traces.
           </p>
 
           <div className="mt-8 rounded-[1.5rem] bg-[#f6f1e7] p-5">
@@ -312,7 +315,7 @@ export default function CollisionNetwork() {
                 </div>
                 <div className="mt-2 text-2xl font-semibold">{value.count}</div>
                 <div className="text-xs text-[#51473d]">
-                  avg severity {value.avg_severity}
+                  observed traces · avg severity {value.avg_severity}
                 </div>
               </button>
             ))}
@@ -367,11 +370,7 @@ export default function CollisionNetwork() {
                 How to read this
               </p>
               <p className="mt-3 text-sm leading-6 text-[#51473d]">
-                Grey nodes are workflow signals, black nodes are governance
-                obligations, red nodes are boundary collisions, and amber nodes
-                are bounded mitigation strategies. Dense connections show where
-                single-objective safety policies are most likely to displace
-                harm into another domain.
+                Read the graph from grey signals to black obligations, then to red collision nodes and amber mitigation nodes. Percentages on collision nodes indicate prevalence across simulated workflow traces.
               </p>
             </div>
 

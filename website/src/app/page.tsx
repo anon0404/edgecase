@@ -3,6 +3,8 @@ import CollisionNetwork from "@/components/CollisionNetwork";
 import TradeoffFrontier from "@/components/TradeoffFrontier";
 import GovernanceTrajectory from "@/components/GovernanceTrajectory";
 import RuntimeReplay from "@/components/RuntimeReplay";
+import ChatbotFlow from "@/components/ChatbotFlow";
+import FrameworkExplorer from "@/components/FrameworkExplorer";
 
 import {
   ArrowRight,
@@ -100,6 +102,7 @@ export default function Home() {
           <a href="#framework">Framework</a>
           <a href="#python">Python</a>
           <a href="#api">API</a>
+          <a href="#chatbot-flow">Chatbot Trace</a>
           <a href="#runtime">Runtime</a>
           <a href="#trajectory">Trajectory</a>
           <a href="#simulation">Simulation</a>
@@ -166,79 +169,8 @@ export default function Home() {
           </pre>
         </div>
       </section>
+      <FrameworkExplorer />
 
-      <section id="framework" className="mx-auto max-w-7xl px-6 py-16">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
-          Framework
-        </p>
-
-        <h2 className="mt-4 max-w-5xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-          Conflict-aware assurance for agentic systems.
-        </h2>
-
-        <p className="mt-6 max-w-3xl text-lg leading-8 text-[#51473d]">
-          EdgeCase combines workflow trace instrumentation,
-          obligation modeling, collision detection, mitigation
-          routing, and audit artifacts to surface governance
-          trade-offs in high-stakes AI systems.
-        </p>
-
-        <div className="mt-12 grid gap-4">
-          {architecture.map((item) => (
-            <div
-              key={item.number}
-              className="grid gap-6 rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-6 md:grid-cols-[80px_80px_280px_1fr]"
-            >
-              <div className="font-mono text-3xl text-[#ff2a00]">
-                {item.number}
-              </div>
-
-              <div className="flex items-start">
-                <item.icon className="h-6 w-6 text-[#ff2a00]" />
-              </div>
-
-              <div className="text-2xl font-medium tracking-[-0.03em]">
-                {item.title}
-              </div>
-
-              <div className="text-lg leading-7 text-[#51473d]">
-                {item.body}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 py-16">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
-          Boundary collisions
-        </p>
-
-        <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-          The same signal can trigger incompatible duties.
-        </h2>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
-          {collisions.map((item) => (
-            <div
-              key={item.title}
-              className="rounded-3xl border border-[#101010]/15 bg-[#fffaf0] p-7"
-            >
-              <h3 className="font-mono text-sm uppercase tracking-widest">
-                {item.title}
-              </h3>
-
-              <p className="mt-5 text-lg leading-7 text-[#51473d]">
-                {item.body}
-              </p>
-
-              <div className="mt-6 inline-flex rounded-full bg-[#101010] px-4 py-2 text-sm text-[#f6f1e7]">
-                {item.mitigation}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <section
         id="python"
@@ -308,35 +240,14 @@ print(report.recommended_mitigation)`}
         <CollisionNetwork />
       </section>
 
+      <ChatbotFlow />
+
       <RuntimeReplay />
 
       <GovernanceTrajectory />
 
       <TradeoffFrontier />
 
-
-      <section id="experiments" className="mx-auto max-w-7xl px-6 py-16">
-        <BarChart3 className="mb-5 h-8 w-8 text-[#ff2a00]" />
-
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
-          Experiments
-        </p>
-
-        <h2 className="mt-4 max-w-4xl text-4xl font-semibold tracking-[-0.04em] md:text-6xl">
-          Measuring harms displaced by single-objective optimization.
-        </h2>
-
-        <div className="mt-10 flex flex-wrap gap-3">
-          {metrics.map((metric) => (
-            <span
-              key={metric}
-              className="rounded-full border border-[#101010]/20 bg-[#fffaf0] px-4 py-2 text-sm"
-            >
-              {metric}
-            </span>
-          ))}
-        </div>
-      </section>
 
 
       <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">

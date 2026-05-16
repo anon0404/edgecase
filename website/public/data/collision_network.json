@@ -10,7 +10,9 @@
       "id": "collision:block_vs_escalate",
       "label": "block vs escalate",
       "type": "collision",
-      "weight": 50
+      "weight": 50,
+      "prevalence": 20.8,
+      "display_value": "20.8%"
     },
     {
       "id": "mitigation:constrain_and_escalate",
@@ -52,7 +54,9 @@
       "id": "collision:verify_vs_accessibility",
       "label": "verify vs accessibility",
       "type": "collision",
-      "weight": 59
+      "weight": 59,
+      "prevalence": 24.6,
+      "display_value": "24.6%"
     },
     {
       "id": "mitigation:adaptive_verification",
@@ -94,7 +98,9 @@
       "id": "collision:privacy_vs_safeguarding",
       "label": "privacy vs safeguarding",
       "type": "collision",
-      "weight": 66
+      "weight": 66,
+      "prevalence": 27.5,
+      "display_value": "27.5%"
     },
     {
       "id": "mitigation:split_logging",
@@ -136,7 +142,9 @@
       "id": "collision:safety_vs_energy",
       "label": "safety vs energy",
       "type": "collision",
-      "weight": 65
+      "weight": 65,
+      "prevalence": 27.1,
+      "display_value": "27.1%"
     },
     {
       "id": "mitigation:adaptive_depth",
