@@ -278,7 +278,7 @@ export default function CollisionNetwork() {
             This network introduces the internal mechanics of EdgeCase. Signals enter from agent workflows, activate governance obligations, form boundary collisions, and route toward bounded mitigations. Collision percentages indicate how often each collision family appears across simulated workflow traces.
           </p>
 
-          <div className="mt-8 rounded-[1.5rem] bg-[#f6f1e7] p-5">
+          <div className="mt-5 rounded-[1.5rem] bg-[#f6f1e7] p-5">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
               Story mode
             </p>
@@ -396,7 +396,7 @@ export default function CollisionNetwork() {
                 </p>
               )}
 
-              <div className="mt-8 space-y-3">
+              <div className="mt-5 space-y-3">
                 {(Object.keys(typeColor) as NodeType[]).map((type) => (
                   <div key={type} className="flex items-center gap-3 text-sm capitalize">
                     <span

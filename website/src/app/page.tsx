@@ -112,7 +112,7 @@ export default function Home() {
         </div>
       </nav>
 
-      <section className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-[1.15fr_0.85fr] md:py-28">
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:grid-cols-[1.15fr_0.85fr] md:py-8">
         <div>
           <p className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
             Conflict-aware assurance for agentic AI
@@ -122,14 +122,14 @@ export default function Home() {
             When safety objectives collide.
           </h1>
 
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-[#51473d]">
+          <p className="mt-5 max-w-2xl text-lg leading-8 text-[#51473d]">
             EdgeCase detects boundary collisions where legitimate governance
             obligations recommend incompatible actions: block versus escalate,
             verify versus accessibility, privacy versus safeguarding, and safety
             versus energy efficiency.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#python"
               className="rounded-full bg-[#101010] px-5 py-3 text-sm text-white transition hover:bg-[#2a2a2a]"
@@ -174,7 +174,7 @@ export default function Home() {
 
       <section
         id="python"
-        className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2"
+        className="mx-auto grid max-w-7xl gap-8 px-6 py-8 md:grid-cols-2"
       >
         <div>
           <Package className="mb-5 h-8 w-8 text-[#ff2a00]" />
@@ -210,7 +210,7 @@ print(report.recommended_mitigation)`}
 
       <section
         id="api"
-        className="mx-auto grid max-w-7xl gap-8 px-6 py-16 md:grid-cols-2"
+        className="mx-auto grid max-w-7xl gap-8 px-6 py-8 md:grid-cols-2"
       >
         <div>
           <Server className="mb-5 h-8 w-8 text-[#ff2a00]" />
@@ -236,7 +236,7 @@ print(report.recommended_mitigation)`}
       </section>
 
 
-      <section id="simulation" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="simulation" className="mx-auto max-w-7xl px-6 py-8">
         <CollisionNetwork />
       </section>
 
@@ -250,14 +250,14 @@ print(report.recommended_mitigation)`}
 
 
 
-      <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="frontier" className="mx-auto max-w-7xl px-6 py-8">
       </section>
 
 
-      <section id="frontier" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="frontier" className="mx-auto max-w-7xl px-6 py-8">
       </section>
 
-      <section id="paper" className="mx-auto max-w-7xl px-6 py-16">
+      <section id="paper" className="mx-auto max-w-7xl px-6 py-8">
         <div className="rounded-[2rem] bg-[#101010] p-8 text-[#f6f1e7] md:p-12">
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
             Paper artifact
@@ -275,7 +275,7 @@ print(report.recommended_mitigation)`}
         </div>
       </section>
 
-      <footer className="mx-auto flex max-w-7xl flex-col gap-4 border-t border-[#101010]/15 px-6 py-10 text-sm text-[#6f675f] md:flex-row md:items-center md:justify-between">
+      <footer className="mx-auto flex max-w-7xl flex-col gap-4 border-t border-[#101010]/15 px-6 py-6 text-sm text-[#6f675f] md:flex-row md:items-center md:justify-between">
         <p className="font-mono">EdgeCase</p>
         <p>Anonymous research artifact for double-anonymous review.</p>
       </footer>

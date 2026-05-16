@@ -191,9 +191,9 @@ export default function TradeoffFrontier() {
   }, [points]);
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-6 py-8">
       <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-6 md:p-8">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
               Interactive tradeoff frontier
@@ -210,7 +210,7 @@ export default function TradeoffFrontier() {
               energy and latency costs.
             </p>
 
-            <div className="mt-8 rounded-[1.5rem] bg-[#f6f1e7] p-5">
+            <div className="mt-5 rounded-[1.5rem] bg-[#f6f1e7] p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
                 How to interpret
               </p>
@@ -231,7 +231,7 @@ export default function TradeoffFrontier() {
               </ul>
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] bg-[#101010] p-5 text-[#f6f1e7]">
+            <div className="mt-5 rounded-[1.5rem] bg-[#101010] p-5 text-[#f6f1e7]">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
                 Selected policy
               </p>

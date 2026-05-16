@@ -36,7 +36,7 @@ export default function ChatbotFlow() {
   const [active, setActive] = useState(examples[0]);
 
   return (
-    <section id="chatbot-flow" className="mx-auto max-w-7xl px-6 py-16">
+    <section id="chatbot-flow" className="mx-auto max-w-7xl px-6 py-8">
       <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-6 md:p-8">
         <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
           Static chatbot trace
@@ -46,7 +46,7 @@ export default function ChatbotFlow() {
           From user input to signals, obligations, collision, and mitigation.
         </h2>
 
-        <div className="mt-8 flex flex-wrap gap-2">
+        <div className="mt-5 flex flex-wrap gap-2">
           {examples.map((example) => (
             <button
               key={example.label}
@@ -62,14 +62,14 @@ export default function ChatbotFlow() {
           ))}
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+        <div className="mt-5 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
           <div className="rounded-[1.5rem] bg-[#101010] p-5 text-[#f6f1e7]">
             <div className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
               User message
             </div>
             <p className="mt-4 text-xl leading-8">“{active.user}”</p>
 
-            <div className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
+            <div className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
               EdgeCase response path
             </div>
             <p className="mt-4 text-sm leading-6 text-[#d6cfc4]">

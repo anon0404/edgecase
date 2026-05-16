@@ -213,7 +213,7 @@ export default function GovernanceTrajectory() {
 
   if (!active || !currentStep) {
     return (
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-8">
         <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-8">
           Loading trajectory simulator…
         </div>
@@ -222,9 +222,9 @@ export default function GovernanceTrajectory() {
   }
 
   return (
-    <section id="trajectory" className="mx-auto max-w-7xl px-6 py-16">
+    <section id="trajectory" className="mx-auto max-w-7xl px-6 py-8">
       <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-6 md:p-8">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
               Governance trajectory simulator
@@ -240,7 +240,7 @@ export default function GovernanceTrajectory() {
               mitigations activate over time.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {trajectories.map((trajectory) => (
                 <button
                   key={trajectory.id}
@@ -259,7 +259,7 @@ export default function GovernanceTrajectory() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] bg-[#f6f1e7] p-5">
+            <div className="mt-5 rounded-[1.5rem] bg-[#f6f1e7] p-5">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
                 Current step
               </p>

@@ -83,7 +83,7 @@ export default function FrameworkExplorer() {
   const [selectedDomain, setSelectedDomain] = useState(domains[0]);
 
   return (
-    <section id="framework" className="mx-auto max-w-7xl px-6 py-16">
+    <section id="framework" className="mx-auto max-w-7xl px-6 py-8">
       <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
         Framework
       </p>
@@ -98,7 +98,7 @@ export default function FrameworkExplorer() {
         evidence for downstream evaluation.
       </p>
 
-      <div className="mt-12 grid gap-4 md:grid-cols-5">
+      <div className="mt-5 grid gap-4 md:grid-cols-5">
         {architecture.map((item, index) => (
           <div
             key={item.title}
@@ -118,7 +118,7 @@ export default function FrameworkExplorer() {
         ))}
       </div>
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="mt-5 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-6">
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
             Boundary collision explorer
@@ -165,7 +165,7 @@ export default function FrameworkExplorer() {
             {selectedCollision.name}
           </h3>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-5 grid gap-4 md:grid-cols-3">
             <div className="rounded-2xl bg-[#f6f1e7] p-4">
               <div className="font-mono text-xs uppercase tracking-[0.15em] text-[#ff2a00]">
                 Signals
@@ -202,7 +202,7 @@ export default function FrameworkExplorer() {
             </div>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-5">
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
               Application domains
             </p>

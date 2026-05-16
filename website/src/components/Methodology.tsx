@@ -23,7 +23,7 @@ export default function Methodology() {
   ];
 
   return (
-    <section id="methodology" className="mx-auto max-w-7xl px-6 py-16">
+    <section id="methodology" className="mx-auto max-w-7xl px-6 py-8">
       <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
         Methodology
       </p>
@@ -32,7 +32,7 @@ export default function Methodology() {
         From traces to measurable governance trade-offs.
       </h2>
 
-      <div className="mt-10 grid gap-4 md:grid-cols-2">
+      <div className="mt-6 grid gap-4 md:grid-cols-2">
         {items.map(([title, body]) => (
           <div
             key={title}

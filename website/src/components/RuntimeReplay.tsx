@@ -78,7 +78,7 @@ export default function RuntimeReplay() {
 
   if (!replay || !current) {
     return (
-      <section className="mx-auto max-w-7xl px-6 py-16">
+      <section className="mx-auto max-w-7xl px-6 py-8">
         <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-8">
           Loading runtime replay…
         </div>
@@ -89,10 +89,10 @@ export default function RuntimeReplay() {
   return (
     <section
       id="runtime"
-      className="mx-auto max-w-7xl px-6 py-16"
+      className="mx-auto max-w-7xl px-6 py-8"
     >
       <div className="rounded-[2rem] border border-[#101010]/15 bg-[#fffaf0] p-6 md:p-8">
-        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.28em] text-[#ff2a00]">
               Runtime governance replay
@@ -108,7 +108,7 @@ export default function RuntimeReplay() {
               and externality drift in runtime.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
+            <div className="mt-5 flex flex-wrap gap-2">
               {replays.map((r) => (
                 <button
                   key={r.workflow}
@@ -128,7 +128,7 @@ export default function RuntimeReplay() {
               ))}
             </div>
 
-            <div className="mt-8 rounded-[1.5rem] bg-[#101010] p-5 text-[#f6f1e7]">
+            <div className="mt-5 rounded-[1.5rem] bg-[#101010] p-5 text-[#f6f1e7]">
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
                 Active runtime event
               </p>
@@ -278,7 +278,7 @@ export default function RuntimeReplay() {
                 })}
               </div>
 
-              <div className="mt-10 grid gap-4 md:grid-cols-2">
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
                 {Object.entries(current.metrics).map(
                   ([key, value]) => (
                     <div
@@ -306,7 +306,7 @@ export default function RuntimeReplay() {
                 )}
               </div>
 
-              <div className="mt-8 rounded-[1.5rem] bg-[#fffaf0] p-5">
+              <div className="mt-5 rounded-[1.5rem] bg-[#fffaf0] p-5">
                 <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#ff2a00]">
                   Governance interpretation
                 </p>
