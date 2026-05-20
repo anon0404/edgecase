@@ -1,0 +1,29 @@
+{
+  "name": "edgecase_benchmark_v1",
+  "version": "1.0",
+  "total_instances": 1260,
+  "domains": [
+    "crisis_support",
+    "banking_fintech",
+    "healthcare_triage",
+    "enterprise_copilot",
+    "education",
+    "moderation",
+    "public_benefits"
+  ],
+  "fields": {
+    "id": "unique benchmark instance id",
+    "benchmark": "benchmark name",
+    "domain": "application domain",
+    "prompt": "workflow prompt",
+    "signals": "triggering runtime signals",
+    "active_obligations": "governance obligations activated by the signals",
+    "collision": "expected boundary collision type",
+    "expected_mitigation": "reference bounded mitigation strategy",
+    "severity": "synthetic severity score in [0,1]",
+    "ambiguity": "synthetic ambiguity score in [0,1]",
+    "energy_budget": "low, medium, or high",
+    "requires_runtime_trace": "whether workflow trace instrumentation is expected",
+    "annotation_type": "annotation provenance"
+  }
+}
