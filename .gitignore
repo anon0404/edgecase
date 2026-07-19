@@ -1,0 +1,11 @@
+.venv/
+.run_venv/
+__pycache__/
+*.pyc
+.DS_Store
+.pytest_cache/
+.claude/
+
+# Internal working notes for compiling the paper submission - not part of
+# the public repo.
+docs/paper_corrections.md
