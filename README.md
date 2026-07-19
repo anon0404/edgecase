@@ -5,15 +5,6 @@
 ### Conflict-aware assurance for security, ethics, and energy trade-offs in agentic systems
 
 <p align="center">
-  <a href="https://edgecase-two.vercel.app">
-    <img src="https://img.shields.io/badge/Website-EdgeCase-black?style=for-the-badge">
-  </a>
-  <a href="https://github.com/anon0404/edgecase">
-    <img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github">
-  </a>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/runtime-governance-red">
   <img src="https://img.shields.io/badge/agentic-systems-black">
   <img src="https://img.shields.io/badge/conflict-aware-orange">
