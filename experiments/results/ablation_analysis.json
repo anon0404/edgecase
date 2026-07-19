@@ -1,0 +1,22 @@
+[
+  {
+    "configuration": "Full EdgeCase",
+    "mitigation_accuracy": 0.834
+  },
+  {
+    "configuration": "- Obligation Registry",
+    "mitigation_accuracy": 0.0
+  },
+  {
+    "configuration": "- Collision Detection",
+    "mitigation_accuracy": 0.0
+  },
+  {
+    "configuration": "- Adaptive Routing",
+    "mitigation_accuracy": 0.106
+  },
+  {
+    "configuration": "- Runtime Instrumentation",
+    "mitigation_accuracy": 0.834
+  }
+]
