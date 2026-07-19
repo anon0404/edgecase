@@ -9,3 +9,7 @@ __pycache__/
 # Internal working notes for compiling the paper submission - not part of
 # the public repo.
 docs/paper_corrections.md
+
+# Ground-truth labels for the blinded annotator agreement study - must not
+# be public alongside the blinded spreadsheet sent to annotators.
+experiments/annotation/annotation_answer_key.csv
