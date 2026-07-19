@@ -269,7 +269,6 @@ src/edgecase/
 
 experiments/           evaluation pipelines (see run_all.sh for the canonical order)
 datasets/              generated benchmarks (see datasets/README.md)
-benchmarks/            earliest prototype fixture, superseded (see benchmarks/README.md)
 website/               Vercel deployment
 docs/                  methodology + reproducibility notes
 tests/                 unit + integration tests
