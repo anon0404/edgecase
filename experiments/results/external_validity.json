@@ -1,59 +1,70 @@
 {
-  "honesty_note": "Neither AgentHarm nor Agent-SafetyBench provides an expected-mitigation label compatible with EdgeCase's schema. This analysis reports obligation-triggering coverage and collision-detection rate on externally-sourced, externally-labeled data. It does NOT validate mitigation accuracy, and does NOT test whether EdgeCase can independently classify raw prompt text into signals - the mapping goes directly from each dataset's own ground-truth category label to a known EdgeCase trigger signal, not from re-derived text classification.",
+  "honesty_note": "Neither AgentHarm nor Agent-SafetyBench provides an expected-mitigation label compatible with EdgeCase's schema. This analysis reports obligation-triggering coverage and collision-detection rate on externally-sourced, externally-labeled data. It does NOT validate mitigation accuracy, and does NOT test whether EdgeCase can independently classify raw prompt text into signals - the mapping goes directly from each dataset's own ground-truth category label to a known EdgeCase trigger signal, not from re-derived text classification. Separately: the 0% collision-detected rate reported per source is only a genuine test on the subset of mapped cases where 2+ obligations actually fire (n_multi_obligation_mapped) - see correct_non_collision_rate_of_multi_obligation. On single-obligation cases (n_single_obligation_mapped), a collision is mechanically impossible regardless of detector quality, so 0% there is a structural guarantee of the input, not a demonstrated detector behavior.",
   "agentharm": {
     "source": "AgentHarm (harmful_behaviors_test_public)",
     "total_cases": 176,
     "total_mapped": 176,
     "coverage_rate": 1.0,
     "obligation_trigger_rate_of_mapped": 1.0,
+    "n_multi_obligation_mapped": 24,
+    "n_single_obligation_mapped": 152,
     "collision_detected_rate_of_mapped": 0.0,
+    "correct_non_collision_rate_of_multi_obligation": 1.0,
     "by_category": {
       "Disinformation": {
         "n_cases": 20,
         "n_mapped": 20,
         "n_obligation_triggered": 20,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Harassment": {
         "n_cases": 24,
         "n_mapped": 24,
         "n_obligation_triggered": 24,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Drugs": {
         "n_cases": 20,
         "n_mapped": 20,
         "n_obligation_triggered": 20,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Fraud": {
         "n_cases": 24,
         "n_mapped": 24,
         "n_obligation_triggered": 24,
+        "n_multi_obligation_triggered": 24,
         "n_collision_detected": 0
       },
       "Hate": {
         "n_cases": 20,
         "n_mapped": 20,
         "n_obligation_triggered": 20,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Cybercrime": {
         "n_cases": 20,
         "n_mapped": 20,
         "n_obligation_triggered": 20,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Sexual": {
         "n_cases": 24,
         "n_mapped": 24,
         "n_obligation_triggered": 24,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Copyright": {
         "n_cases": 24,
         "n_mapped": 24,
         "n_obligation_triggered": 24,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       }
     }
@@ -64,54 +75,65 @@
     "total_mapped": 1000,
     "coverage_rate": 0.5,
     "obligation_trigger_rate_of_mapped": 1.0,
+    "n_multi_obligation_mapped": 250,
+    "n_single_obligation_mapped": 750,
     "collision_detected_rate_of_mapped": 0.0,
+    "correct_non_collision_rate_of_multi_obligation": 1.0,
     "by_category": {
       "Spread unsafe information / misinformation": {
         "n_cases": 250,
         "n_mapped": 0,
         "n_obligation_triggered": 0,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Lead to property loss": {
         "n_cases": 250,
         "n_mapped": 250,
         "n_obligation_triggered": 250,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Leak sensitive data / information": {
         "n_cases": 250,
         "n_mapped": 250,
         "n_obligation_triggered": 250,
+        "n_multi_obligation_triggered": 250,
         "n_collision_detected": 0
       },
       "Compromise availability": {
         "n_cases": 250,
         "n_mapped": 0,
         "n_obligation_triggered": 0,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Contribute to harmful / vulnerable code": {
         "n_cases": 250,
         "n_mapped": 0,
         "n_obligation_triggered": 0,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Violate law or ethics / damage society": {
         "n_cases": 250,
         "n_mapped": 250,
         "n_obligation_triggered": 250,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Lead to physical harm": {
         "n_cases": 250,
         "n_mapped": 0,
         "n_obligation_triggered": 0,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       },
       "Produce unsafe information / misinformation": {
         "n_cases": 250,
         "n_mapped": 250,
         "n_obligation_triggered": 250,
+        "n_multi_obligation_triggered": 0,
         "n_collision_detected": 0
       }
     }
