@@ -1,0 +1,261 @@
+{
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "cases_per_seed": 1260,
+  "n_bootstrap": 10000,
+  "ci_per_policy": {
+    "strict_block": [
+      {
+        "metric": "mitigation_accuracy",
+        "mean": 0.0714,
+        "ci_lower_95": 0.0683,
+        "ci_upper_95": 0.0744
+      },
+      {
+        "metric": "avg_care_suppression",
+        "mean": 0.3503,
+        "ci_lower_95": 0.3432,
+        "ci_upper_95": 0.3571
+      },
+      {
+        "metric": "avg_security_risk",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_accessibility_burden",
+        "mean": 0.2671,
+        "ci_lower_95": 0.2624,
+        "ci_upper_95": 0.2718
+      },
+      {
+        "metric": "avg_privacy_exposure",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_energy_score",
+        "mean": 0.2,
+        "ci_lower_95": 0.2,
+        "ci_upper_95": 0.2
+      },
+      {
+        "metric": "governance_externality",
+        "mean": 0.1876,
+        "ci_lower_95": 0.1857,
+        "ci_upper_95": 0.1895
+      }
+    ],
+    "always_escalate": [
+      {
+        "metric": "mitigation_accuracy",
+        "mean": 0.0714,
+        "ci_lower_95": 0.0684,
+        "ci_upper_95": 0.0745
+      },
+      {
+        "metric": "avg_care_suppression",
+        "mean": 0.1286,
+        "ci_lower_95": 0.1253,
+        "ci_upper_95": 0.1319
+      },
+      {
+        "metric": "avg_security_risk",
+        "mean": 0.4088,
+        "ci_lower_95": 0.4031,
+        "ci_upper_95": 0.4144
+      },
+      {
+        "metric": "avg_accessibility_burden",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_privacy_exposure",
+        "mean": 0.2425,
+        "ci_lower_95": 0.2365,
+        "ci_upper_95": 0.2486
+      },
+      {
+        "metric": "avg_energy_score",
+        "mean": 0.5,
+        "ci_lower_95": 0.5,
+        "ci_upper_95": 0.5
+      },
+      {
+        "metric": "governance_externality",
+        "mean": 0.2468,
+        "ci_lower_95": 0.2459,
+        "ci_upper_95": 0.2476
+      }
+    ],
+    "always_verify": [
+      {
+        "metric": "mitigation_accuracy",
+        "mean": 0.0714,
+        "ci_lower_95": 0.0684,
+        "ci_upper_95": 0.0744
+      },
+      {
+        "metric": "avg_care_suppression",
+        "mean": 0.3503,
+        "ci_lower_95": 0.3433,
+        "ci_upper_95": 0.3572
+      },
+      {
+        "metric": "avg_security_risk",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_accessibility_burden",
+        "mean": 0.2671,
+        "ci_lower_95": 0.2623,
+        "ci_upper_95": 0.2718
+      },
+      {
+        "metric": "avg_privacy_exposure",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_energy_score",
+        "mean": 0.5,
+        "ci_lower_95": 0.5,
+        "ci_upper_95": 0.5
+      },
+      {
+        "metric": "governance_externality",
+        "mean": 0.2176,
+        "ci_lower_95": 0.2157,
+        "ci_upper_95": 0.2195
+      }
+    ],
+    "maximum_review": [
+      {
+        "metric": "mitigation_accuracy",
+        "mean": 0.1429,
+        "ci_lower_95": 0.1388,
+        "ci_upper_95": 0.1468
+      },
+      {
+        "metric": "avg_care_suppression",
+        "mean": 0.3503,
+        "ci_lower_95": 0.3434,
+        "ci_upper_95": 0.3573
+      },
+      {
+        "metric": "avg_security_risk",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_accessibility_burden",
+        "mean": 0.2671,
+        "ci_lower_95": 0.2624,
+        "ci_upper_95": 0.2718
+      },
+      {
+        "metric": "avg_privacy_exposure",
+        "mean": 0.05,
+        "ci_lower_95": 0.05,
+        "ci_upper_95": 0.05
+      },
+      {
+        "metric": "avg_energy_score",
+        "mean": 0.9,
+        "ci_lower_95": 0.9,
+        "ci_upper_95": 0.9
+      },
+      {
+        "metric": "governance_externality",
+        "mean": 0.2576,
+        "ci_lower_95": 0.2558,
+        "ci_upper_95": 0.2596
+      }
+    ],
+    "edgecase_adaptive": [
+      {
+        "metric": "mitigation_accuracy",
+        "mean": 0.8441,
+        "ci_lower_95": 0.8378,
+        "ci_upper_95": 0.8504
+      },
+      {
+        "metric": "avg_care_suppression",
+        "mean": 0.1523,
+        "ci_lower_95": 0.1476,
+        "ci_upper_95": 0.157
+      },
+      {
+        "metric": "avg_security_risk",
+        "mean": 0.2523,
+        "ci_lower_95": 0.2493,
+        "ci_upper_95": 0.2553
+      },
+      {
+        "metric": "avg_accessibility_burden",
+        "mean": 0.1621,
+        "ci_lower_95": 0.1573,
+        "ci_upper_95": 0.1669
+      },
+      {
+        "metric": "avg_privacy_exposure",
+        "mean": 0.1157,
+        "ci_lower_95": 0.1118,
+        "ci_upper_95": 0.1196
+      },
+      {
+        "metric": "avg_energy_score",
+        "mean": 0.3087,
+        "ci_lower_95": 0.3062,
+        "ci_upper_95": 0.3112
+      },
+      {
+        "metric": "governance_externality",
+        "mean": 0.1871,
+        "ci_lower_95": 0.1852,
+        "ci_upper_95": 0.1889
+      }
+    ]
+  },
+  "wilcoxon_vs_adaptive_on_mitigation_score": {
+    "strict_block": {
+      "n_pairs": 12600,
+      "n_nonzero_diffs": 10636,
+      "mean_diff_adaptive_minus_baseline": 0.7727,
+      "statistic": 0.0,
+      "p_value": 0.0
+    },
+    "always_escalate": {
+      "n_pairs": 12600,
+      "n_nonzero_diffs": 10636,
+      "mean_diff_adaptive_minus_baseline": 0.7727,
+      "statistic": 0.0,
+      "p_value": 0.0
+    },
+    "maximum_review": {
+      "n_pairs": 12600,
+      "n_nonzero_diffs": 11496,
+      "mean_diff_adaptive_minus_baseline": 0.7013,
+      "statistic": 1548430.0,
+      "p_value": 0.0
+    }
+  }
+}

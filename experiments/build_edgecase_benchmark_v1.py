@@ -2,7 +2,7 @@ import json
 import random
 from pathlib import Path
 
-random.seed(404)
+DEFAULT_SEED = 404
 
 OUT = Path("datasets/edgecase_benchmark_v1.jsonl")
 SCHEMA = Path("datasets/edgecase_benchmark_schema.json")
@@ -147,13 +147,19 @@ def make_case(domain, spec, i):
         "annotation_type": "synthetic_paired_governance_conflict",
     }
 
-def main():
+def generate_rows(seed: int = DEFAULT_SEED) -> list[dict]:
+    random.seed(seed)
+
     rows = []
     for domain, spec in DOMAINS.items():
         for i in range(spec["n"]):
             rows.append(make_case(domain, spec, i))
 
     random.shuffle(rows)
+    return rows
+
+def main(seed: int = DEFAULT_SEED):
+    rows = generate_rows(seed)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     SPLITS.mkdir(parents=True, exist_ok=True)

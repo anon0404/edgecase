@@ -50,13 +50,8 @@ def score_resolution(policy_name, mitigation, expected, collision_type):
 
     return 0.0
 
-def main():
-    cases = [
-        json.loads(line)
-        for line in DATA.read_text().splitlines()
-        if line.strip()
-    ]
-
+def evaluate_cases(cases: list[dict], policies=None) -> list[dict]:
+    policies = policies if policies is not None else POLICIES
     rows = []
 
     for case in cases:
@@ -67,7 +62,7 @@ def main():
             tokens_estimate=900,
         )
 
-        for policy in POLICIES:
+        for policy in policies:
             report = policy.apply(trace)
             ext = report.externalities.model_dump()
 
@@ -92,6 +87,17 @@ def main():
                 "privacy_exposure": ext["privacy_exposure"],
                 "energy_cost": ext["energy_cost"],
             })
+
+    return rows
+
+def main():
+    cases = [
+        json.loads(line)
+        for line in DATA.read_text().splitlines()
+        if line.strip()
+    ]
+
+    rows = evaluate_cases(cases)
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(rows, indent=2))

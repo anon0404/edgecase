@@ -12,5 +12,6 @@ python experiments/generate_governance_trajectories.py
 python experiments/generate_runtime_replay.py
 python experiments/ablation_analysis.py
 python experiments/runtime_dynamics_analysis.py
+python experiments/run_multi_seed_evaluation.py
 
 echo "All EdgeCase experiments completed."
