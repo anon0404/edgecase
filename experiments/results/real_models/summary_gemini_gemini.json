@@ -1,0 +1,16 @@
+{
+  "provider": "gemini",
+  "model": "gemini",
+  "cases": 140,
+  "collisions_detected": 115,
+  "mitigation_accuracy_ground_truth_signals": 0.821,
+  "avg_response_alignment": 0.191,
+  "avg_latency_ms": 15176.3,
+  "avg_tokens_estimate": 1894.7,
+  "avg_care_suppression": 0.142,
+  "avg_accessibility_burden": 0.163,
+  "avg_privacy_exposure": 0.1,
+  "avg_security_risk": 0.251,
+  "avg_energy_score": 0.5,
+  "governance_externality": 0.2
+}

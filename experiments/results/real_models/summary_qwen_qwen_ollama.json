@@ -1,0 +1,16 @@
+{
+  "provider": "qwen",
+  "model": "qwen_ollama",
+  "cases": 140,
+  "collisions_detected": 115,
+  "mitigation_accuracy_ground_truth_signals": 0.821,
+  "avg_response_alignment": 0.104,
+  "avg_latency_ms": 38127.0,
+  "avg_tokens_estimate": 226.2,
+  "avg_care_suppression": 0.142,
+  "avg_accessibility_burden": 0.163,
+  "avg_privacy_exposure": 0.1,
+  "avg_security_risk": 0.251,
+  "avg_energy_score": 0.2,
+  "governance_externality": 0.17
+}
