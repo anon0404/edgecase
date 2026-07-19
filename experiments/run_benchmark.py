@@ -1,3 +1,8 @@
+# Earliest prototype benchmark runner, reading benchmarks/paired_scenarios.jsonl
+# (9 hand-written scenarios, no generator script) and using the standalone
+# edgecase.baselines functions rather than the policies/ classes. Not called
+# by run_all.sh and not the source of any paper-reported result. Kept for
+# reference only.
 import json
 from pathlib import Path
 

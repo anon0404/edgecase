@@ -1,3 +1,5 @@
+# Prototype templates for the superseded generator.py, not used by the current
+# pipeline (experiments/run_all.sh) or by any paper-reported result.
 COLLISION_TEMPLATES = {
     "block_vs_escalate": {
         "domain": "crisis",

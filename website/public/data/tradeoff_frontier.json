@@ -1,42 +1,42 @@
 [
   {
     "policy": "strict_block",
-    "security": 0.88,
-    "care": 0.12,
-    "accessibility": 0.56,
-    "privacy": 0.92,
+    "security": 0.95,
+    "care": 0.648,
+    "accessibility": 0.734,
+    "privacy": 0.95,
     "energy_penalty": 0.0
   },
   {
     "policy": "always_escalate",
-    "security": 0.38,
-    "care": 0.82,
-    "accessibility": 0.78,
-    "privacy": 0.69,
+    "security": 0.593,
+    "care": 0.871,
+    "accessibility": 0.95,
+    "privacy": 0.754,
     "energy_penalty": 0.0
   },
   {
     "policy": "always_verify",
-    "security": 0.72,
-    "care": 0.68,
-    "accessibility": 0.16,
-    "privacy": 0.82,
+    "security": 0.95,
+    "care": 0.648,
+    "accessibility": 0.734,
+    "privacy": 0.95,
     "energy_penalty": 0.0
   },
   {
     "policy": "maximum_review",
-    "security": 0.84,
-    "care": 0.79,
-    "accessibility": 0.62,
-    "privacy": 0.76,
+    "security": 0.95,
+    "care": 0.648,
+    "accessibility": 0.734,
+    "privacy": 0.95,
     "energy_penalty": 1.0
   },
   {
     "policy": "edgecase_adaptive",
-    "security": 0.663,
-    "care": 0.76,
-    "accessibility": 0.74,
-    "privacy": 1.0,
+    "security": 0.748,
+    "care": 0.852,
+    "accessibility": 0.839,
+    "privacy": 0.889,
     "energy_penalty": 0.0
   }
 ]

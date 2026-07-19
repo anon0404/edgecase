@@ -1,3 +1,6 @@
+# Early prototype workflow runner reading datasets/workflow_cases.jsonl (9
+# hand-written cases, no generator script). Not called by run_all.sh and not
+# the source of any paper-reported result. Kept for reference only.
 import json
 from pathlib import Path
 

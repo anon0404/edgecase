@@ -10,7 +10,7 @@ from edgecase.policies import (
     AdaptiveEdgeCasePolicy,
 )
 
-DATA = Path("datasets/workflow_cases.jsonl")
+DATA = Path("datasets/edgecase_benchmark_v1.jsonl")
 
 OUT = Path("experiments/results/policy_comparison.json")
 
@@ -84,7 +84,7 @@ def main():
     for case in cases:
         trace = Trace(
             signals=case["signals"],
-            workflow=case["workflow"],
+            workflow=case["domain"],
             model_calls=2,
             tokens_estimate=1200,
         )
@@ -96,7 +96,7 @@ def main():
                 "case_id": case["id"],
                 "policy": policy.name,
                 "signals": case["signals"],
-                "workflow": case["workflow"],
+                "workflow": case["domain"],
                 "recommended_mitigation": result.recommended_mitigation,
                 "externalities": result.externalities.model_dump(),
             })

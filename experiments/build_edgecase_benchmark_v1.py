@@ -220,6 +220,14 @@ This is a synthetic benchmark generated from paired governance-conflict template
 ## Citation
 
 If using this benchmark, cite the EdgeCase paper and repository.
+
+## Other files in this directory
+
+`workflow_cases.jsonl`, `model_cases.jsonl`, and `edgecase_benchmark.jsonl`
+are earlier prototype fixtures (hand-written or from a superseded 4-domain
+generator) used only by scripts `run_all.sh` does not call
+(`run_workflows.py`, `run_model_workflows.py`, `run_real_model_evaluation.py`).
+They are not the source of any paper-reported result.
 """)
 
     print(f"Wrote {OUT} with {len(rows)} instances")

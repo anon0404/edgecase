@@ -1,21 +1,34 @@
-from edgecase.models import CollisionReport, Externalities
+from edgecase.models import CollisionReport
 from edgecase.models import Trace
+from edgecase.registry import Registry
 from .base import BasePolicy
+from .rigid import rigid_externalities
+
+BASE_FLOOR = {
+    "care_suppression_risk": 0.05,
+    "security_risk": 0.05,
+    "accessibility_burden": 0.05,
+    "privacy_exposure": 0.05,
+}
 
 class EscalationPolicy(BasePolicy):
     name = "always_escalate"
 
+    def __init__(self):
+        self.registry = Registry.default()
+
     def apply(self, trace: Trace) -> CollisionReport:
+        externalities = rigid_externalities(
+            pole="supportive",
+            base_floor=BASE_FLOOR,
+            energy_cost="medium",
+            trace=trace,
+            registry=self.registry,
+        )
         return CollisionReport(
             collision_detected=False,
             recommended_mitigation="escalate",
-            externalities=Externalities(
-                care_suppression_risk=0.18,
-                security_risk=0.62,
-                accessibility_burden=0.22,
-                privacy_exposure=0.31,
-                energy_cost="medium",
-            ),
+            externalities=externalities,
             audit={
                 "policy": self.name,
                 "decision": "escalate",

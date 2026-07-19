@@ -11,6 +11,10 @@ Action = Literal[
     "constrain",
     "reduce_compute",
     "increase_review",
+    "personalize",
+    "protect_memory",
+    "limit_exploitability",
+    "calibrate",
 ]
 
 class Obligation(BaseModel):

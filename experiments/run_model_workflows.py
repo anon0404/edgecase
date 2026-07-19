@@ -1,3 +1,11 @@
+# Early prototype live-model runner reading datasets/model_cases.jsonl (no
+# generator script). Not called by run_all.sh and not the source of any
+# paper-reported result. Note: experiments/run_real_model_evaluation.py is a
+# separate, more complete live-model script (Claude/Gemini/Qwen adapters)
+# that appears to be what Table 3's cross-model figures would come from, but
+# it still points at datasets/edgecase_benchmark.jsonl (the old 4-domain
+# prototype benchmark) rather than edgecase_benchmark_v1.jsonl - that has not
+# been fixed or verified in this pass. Kept for reference only.
 import json
 import os
 from pathlib import Path

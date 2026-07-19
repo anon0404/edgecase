@@ -83,4 +83,44 @@ class Registry:
             description="Increase review depth for high-risk cases."
         ))
 
+        registry.add(Obligation(
+            name="memory.personalize",
+            domain="memory",
+            triggers=["memory_update", "personalization_request", "private_context"],
+            action="personalize",
+            description="Personalize based on stored context."
+        ))
+
+        registry.add(Obligation(
+            name="memory.protect",
+            domain="memory",
+            triggers=["memory_poisoning_risk", "sensitive_data", "policy_override"],
+            action="protect_memory",
+            description="Guard against unsafe memory writes."
+        ))
+
+        registry.add(Obligation(
+            name="transparency.explain",
+            domain="transparency",
+            triggers=["transparency_request", "appeal_request", "moderation_dispute"],
+            action="explain",
+            description="Provide enforcement rationale."
+        ))
+
+        registry.add(Obligation(
+            name="security.limit_exploitability",
+            domain="security",
+            triggers=["policy_evasion", "request_for_policy_details", "adversarial_probe"],
+            action="limit_exploitability",
+            description="Withhold detail that enables evasion."
+        ))
+
+        registry.add(Obligation(
+            name="fairness.calibrate",
+            domain="fairness",
+            triggers=["fairness_risk", "protected_attribute_proxy", "stereotype_risk"],
+            action="calibrate",
+            description="Prevent unfair personalization."
+        ))
+
         return registry

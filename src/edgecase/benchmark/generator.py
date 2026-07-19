@@ -1,3 +1,6 @@
+# Prototype benchmark generator, superseded by experiments/build_edgecase_benchmark_v1.py
+# (4 collision types, tiny template pools). Not used by the current pipeline
+# (experiments/run_all.sh) or by any paper-reported result. Kept for reference only.
 import json
 import random
 from pathlib import Path

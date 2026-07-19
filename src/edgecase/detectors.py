@@ -6,6 +6,9 @@ INCOMPATIBLE_ACTIONS = {
     frozenset(["verify", "constrain"]): ("verify_vs_accessibility", "adaptive_verification"),
     frozenset(["minimize", "increase_review"]): ("privacy_vs_safeguarding", "split_logging"),
     frozenset(["reduce_compute", "increase_review"]): ("safety_vs_energy", "adaptive_depth"),
+    frozenset(["personalize", "protect_memory"]): ("memory_care_vs_memory_poisoning", "typed_memory"),
+    frozenset(["explain", "limit_exploitability"]): ("explain_vs_exploitability", "layered_explanation"),
+    frozenset(["personalize", "calibrate"]): ("fairness_vs_personalization", "bounded_personalization"),
 }
 
 def _score_externalities(collision_type, trace):
@@ -18,6 +21,12 @@ def _score_externalities(collision_type, trace):
     if collision_type == "safety_vs_energy":
         cost = "high" if trace.model_calls >= 3 or trace.tokens_estimate >= 3000 else "medium"
         return Externalities(security_risk=0.25, energy_cost=cost)
+    if collision_type == "memory_care_vs_memory_poisoning":
+        return Externalities(privacy_exposure=0.50, security_risk=0.45, energy_cost="medium")
+    if collision_type == "explain_vs_exploitability":
+        return Externalities(security_risk=0.30, accessibility_burden=0.20, energy_cost="low")
+    if collision_type == "fairness_vs_personalization":
+        return Externalities(care_suppression_risk=0.30, accessibility_burden=0.40, energy_cost="low")
     return Externalities()
 
 def detect(trace, registry=None):
