@@ -1,0 +1,61 @@
+{
+  "policy": "oracle_tuned_fixed",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "n_test_cases_total": 1890,
+  "tuning_mismatches_vs_known_correct_mapping": {},
+  "ci_metrics": [
+    {
+      "metric": "mitigation_accuracy",
+      "mean": 1.0,
+      "ci_lower_95": 1.0,
+      "ci_upper_95": 1.0
+    },
+    {
+      "metric": "avg_care_suppression",
+      "mean": 0.212,
+      "ci_lower_95": 0.1999,
+      "ci_upper_95": 0.2243
+    },
+    {
+      "metric": "avg_security_risk",
+      "mean": 0.2557,
+      "ci_lower_95": 0.248,
+      "ci_upper_95": 0.2633
+    },
+    {
+      "metric": "avg_accessibility_burden",
+      "mean": 0.1967,
+      "ci_lower_95": 0.1842,
+      "ci_upper_95": 0.2096
+    },
+    {
+      "metric": "avg_privacy_exposure",
+      "mean": 0.1593,
+      "ci_lower_95": 0.1482,
+      "ci_upper_95": 0.1707
+    },
+    {
+      "metric": "avg_energy_score",
+      "mean": 0.3294,
+      "ci_lower_95": 0.3227,
+      "ci_upper_95": 0.336
+    },
+    {
+      "metric": "governance_externality",
+      "mean": 0.2218,
+      "ci_lower_95": 0.2182,
+      "ci_upper_95": 0.2254
+    }
+  ]
+}

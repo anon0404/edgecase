@@ -13,5 +13,6 @@ python experiments/generate_runtime_replay.py
 python experiments/ablation_analysis.py
 python experiments/runtime_dynamics_analysis.py
 python experiments/run_multi_seed_evaluation.py
+python experiments/oracle_tuned_baseline.py
 
 echo "All EdgeCase experiments completed."
