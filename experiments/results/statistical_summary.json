@@ -18,14 +18,14 @@
       {
         "metric": "mitigation_accuracy",
         "mean": 0.0714,
-        "ci_lower_95": 0.0683,
-        "ci_upper_95": 0.0744
+        "ci_lower_95": 0.0684,
+        "ci_upper_95": 0.0745
       },
       {
         "metric": "avg_care_suppression",
-        "mean": 0.3503,
-        "ci_lower_95": 0.3432,
-        "ci_upper_95": 0.3571
+        "mean": 0.3883,
+        "ci_lower_95": 0.3813,
+        "ci_upper_95": 0.3954
       },
       {
         "metric": "avg_security_risk",
@@ -35,9 +35,9 @@
       },
       {
         "metric": "avg_accessibility_burden",
-        "mean": 0.2671,
-        "ci_lower_95": 0.2624,
-        "ci_upper_95": 0.2718
+        "mean": 0.329,
+        "ci_lower_95": 0.3243,
+        "ci_upper_95": 0.3337
       },
       {
         "metric": "avg_privacy_exposure",
@@ -53,9 +53,9 @@
       },
       {
         "metric": "governance_externality",
-        "mean": 0.1876,
-        "ci_lower_95": 0.1857,
-        "ci_upper_95": 0.1895
+        "mean": 0.2083,
+        "ci_lower_95": 0.2065,
+        "ci_upper_95": 0.2103
       }
     ],
     "always_escalate": [
@@ -68,14 +68,14 @@
       {
         "metric": "avg_care_suppression",
         "mean": 0.1286,
-        "ci_lower_95": 0.1253,
+        "ci_lower_95": 0.1252,
         "ci_upper_95": 0.1319
       },
       {
         "metric": "avg_security_risk",
         "mean": 0.4088,
         "ci_lower_95": 0.4031,
-        "ci_upper_95": 0.4144
+        "ci_upper_95": 0.4148
       },
       {
         "metric": "avg_accessibility_burden",
@@ -85,9 +85,9 @@
       },
       {
         "metric": "avg_privacy_exposure",
-        "mean": 0.2425,
-        "ci_lower_95": 0.2365,
-        "ci_upper_95": 0.2486
+        "mean": 0.2757,
+        "ci_lower_95": 0.2693,
+        "ci_upper_95": 0.2823
       },
       {
         "metric": "avg_energy_score",
@@ -97,9 +97,9 @@
       },
       {
         "metric": "governance_externality",
-        "mean": 0.2468,
-        "ci_lower_95": 0.2459,
-        "ci_upper_95": 0.2476
+        "mean": 0.2534,
+        "ci_lower_95": 0.2528,
+        "ci_upper_95": 0.254
       }
     ],
     "always_verify": [
@@ -107,13 +107,13 @@
         "metric": "mitigation_accuracy",
         "mean": 0.0714,
         "ci_lower_95": 0.0684,
-        "ci_upper_95": 0.0744
+        "ci_upper_95": 0.0745
       },
       {
         "metric": "avg_care_suppression",
-        "mean": 0.3503,
-        "ci_lower_95": 0.3433,
-        "ci_upper_95": 0.3572
+        "mean": 0.3883,
+        "ci_lower_95": 0.3813,
+        "ci_upper_95": 0.3954
       },
       {
         "metric": "avg_security_risk",
@@ -123,9 +123,9 @@
       },
       {
         "metric": "avg_accessibility_burden",
-        "mean": 0.2671,
-        "ci_lower_95": 0.2623,
-        "ci_upper_95": 0.2718
+        "mean": 0.329,
+        "ci_lower_95": 0.3242,
+        "ci_upper_95": 0.3338
       },
       {
         "metric": "avg_privacy_exposure",
@@ -141,23 +141,23 @@
       },
       {
         "metric": "governance_externality",
-        "mean": 0.2176,
-        "ci_lower_95": 0.2157,
-        "ci_upper_95": 0.2195
+        "mean": 0.2383,
+        "ci_lower_95": 0.2365,
+        "ci_upper_95": 0.2402
       }
     ],
     "maximum_review": [
       {
         "metric": "mitigation_accuracy",
         "mean": 0.1429,
-        "ci_lower_95": 0.1388,
-        "ci_upper_95": 0.1468
+        "ci_lower_95": 0.139,
+        "ci_upper_95": 0.1467
       },
       {
         "metric": "avg_care_suppression",
-        "mean": 0.3503,
-        "ci_lower_95": 0.3434,
-        "ci_upper_95": 0.3573
+        "mean": 0.3883,
+        "ci_lower_95": 0.3812,
+        "ci_upper_95": 0.3953
       },
       {
         "metric": "avg_security_risk",
@@ -167,9 +167,9 @@
       },
       {
         "metric": "avg_accessibility_burden",
-        "mean": 0.2671,
-        "ci_lower_95": 0.2624,
-        "ci_upper_95": 0.2718
+        "mean": 0.329,
+        "ci_lower_95": 0.3242,
+        "ci_upper_95": 0.3337
       },
       {
         "metric": "avg_privacy_exposure",
@@ -185,76 +185,76 @@
       },
       {
         "metric": "governance_externality",
-        "mean": 0.2576,
-        "ci_lower_95": 0.2558,
-        "ci_upper_95": 0.2596
+        "mean": 0.2783,
+        "ci_lower_95": 0.2764,
+        "ci_upper_95": 0.2803
       }
     ],
     "edgecase_adaptive": [
       {
         "metric": "mitigation_accuracy",
-        "mean": 0.8441,
-        "ci_lower_95": 0.8378,
-        "ci_upper_95": 0.8504
+        "mean": 1.0,
+        "ci_lower_95": 1.0,
+        "ci_upper_95": 1.0
       },
       {
         "metric": "avg_care_suppression",
-        "mean": 0.1523,
-        "ci_lower_95": 0.1476,
-        "ci_upper_95": 0.157
+        "mean": 0.2086,
+        "ci_lower_95": 0.204,
+        "ci_upper_95": 0.2132
       },
       {
         "metric": "avg_security_risk",
-        "mean": 0.2523,
-        "ci_lower_95": 0.2493,
-        "ci_upper_95": 0.2553
+        "mean": 0.2514,
+        "ci_lower_95": 0.2484,
+        "ci_upper_95": 0.2544
       },
       {
         "metric": "avg_accessibility_burden",
-        "mean": 0.1621,
-        "ci_lower_95": 0.1573,
-        "ci_upper_95": 0.1669
+        "mean": 0.1971,
+        "ci_lower_95": 0.1923,
+        "ci_upper_95": 0.202
       },
       {
         "metric": "avg_privacy_exposure",
-        "mean": 0.1157,
-        "ci_lower_95": 0.1118,
-        "ci_upper_95": 0.1196
+        "mean": 0.1543,
+        "ci_lower_95": 0.15,
+        "ci_upper_95": 0.1586
       },
       {
         "metric": "avg_energy_score",
-        "mean": 0.3087,
-        "ci_lower_95": 0.3062,
-        "ci_upper_95": 0.3112
+        "mean": 0.3286,
+        "ci_lower_95": 0.3261,
+        "ci_upper_95": 0.3312
       },
       {
         "metric": "governance_externality",
-        "mean": 0.1871,
-        "ci_lower_95": 0.1852,
-        "ci_upper_95": 0.1889
+        "mean": 0.2187,
+        "ci_lower_95": 0.2173,
+        "ci_upper_95": 0.2201
       }
     ]
   },
   "wilcoxon_vs_adaptive_on_mitigation_score": {
     "strict_block": {
       "n_pairs": 12600,
-      "n_nonzero_diffs": 10636,
-      "mean_diff_adaptive_minus_baseline": 0.7727,
+      "n_nonzero_diffs": 12600,
+      "mean_diff_adaptive_minus_baseline": 0.9286,
       "statistic": 0.0,
       "p_value": 0.0
     },
     "always_escalate": {
       "n_pairs": 12600,
-      "n_nonzero_diffs": 10636,
-      "mean_diff_adaptive_minus_baseline": 0.7727,
+      "n_nonzero_diffs": 12600,
+      "mean_diff_adaptive_minus_baseline": 0.9286,
       "statistic": 0.0,
       "p_value": 0.0
     },
     "maximum_review": {
       "n_pairs": 12600,
-      "n_nonzero_diffs": 11496,
-      "mean_diff_adaptive_minus_baseline": 0.7013,
-      "statistic": 1548430.0,
+      "n_nonzero_diffs": 12600,
+      "mean_diff_adaptive_minus_baseline": 0.8571,
+      "statistic": 0.0,
       "p_value": 0.0
     }
   }

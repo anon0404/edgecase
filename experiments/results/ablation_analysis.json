@@ -1,7 +1,7 @@
 [
   {
     "configuration": "Full EdgeCase",
-    "mitigation_accuracy": 0.834
+    "mitigation_accuracy": 1.0
   },
   {
     "configuration": "- Obligation Registry",
@@ -13,10 +13,10 @@
   },
   {
     "configuration": "- Adaptive Routing",
-    "mitigation_accuracy": 0.106
+    "mitigation_accuracy": 0.143
   },
   {
     "configuration": "- Runtime Instrumentation",
-    "mitigation_accuracy": 0.834
+    "mitigation_accuracy": 1.0
   }
 ]

@@ -1,0 +1,111 @@
+{
+  "provider": "anthropic",
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "n_distinct_keys_classified": 803,
+  "n_total_rows": 12600,
+  "outcome_counts": {
+    "correct": 12493,
+    "wrong_type": 107,
+    "predicted_none": 0,
+    "parse_error": 0
+  },
+  "ci_original": [
+    {
+      "metric": "mitigation_accuracy",
+      "mean": 0.9915,
+      "ci_lower_95": 0.9898,
+      "ci_upper_95": 0.9931
+    },
+    {
+      "metric": "avg_care_suppression",
+      "mean": 0.2147,
+      "ci_lower_95": 0.2101,
+      "ci_upper_95": 0.2194
+    },
+    {
+      "metric": "avg_security_risk",
+      "mean": 0.2519,
+      "ci_lower_95": 0.2489,
+      "ci_upper_95": 0.255
+    },
+    {
+      "metric": "avg_accessibility_burden",
+      "mean": 0.1905,
+      "ci_lower_95": 0.1859,
+      "ci_upper_95": 0.1954
+    },
+    {
+      "metric": "avg_privacy_exposure",
+      "mean": 0.1543,
+      "ci_lower_95": 0.1501,
+      "ci_upper_95": 0.1585
+    },
+    {
+      "metric": "avg_energy_score",
+      "mean": 0.3286,
+      "ci_lower_95": 0.326,
+      "ci_upper_95": 0.3311
+    },
+    {
+      "metric": "governance_externality",
+      "mean": 0.2197,
+      "ci_lower_95": 0.2183,
+      "ci_upper_95": 0.2211
+    }
+  ],
+  "ci_penalized": [
+    {
+      "metric": "mitigation_accuracy",
+      "mean": 0.9915,
+      "ci_lower_95": 0.9898,
+      "ci_upper_95": 0.9931
+    },
+    {
+      "metric": "avg_care_suppression",
+      "mean": 0.2086,
+      "ci_lower_95": 0.204,
+      "ci_upper_95": 0.2132
+    },
+    {
+      "metric": "avg_security_risk",
+      "mean": 0.2514,
+      "ci_lower_95": 0.2484,
+      "ci_upper_95": 0.2545
+    },
+    {
+      "metric": "avg_accessibility_burden",
+      "mean": 0.1971,
+      "ci_lower_95": 0.1925,
+      "ci_upper_95": 0.202
+    },
+    {
+      "metric": "avg_privacy_exposure",
+      "mean": 0.1543,
+      "ci_lower_95": 0.1501,
+      "ci_upper_95": 0.1585
+    },
+    {
+      "metric": "avg_energy_score",
+      "mean": 0.3286,
+      "ci_lower_95": 0.326,
+      "ci_upper_95": 0.3311
+    },
+    {
+      "metric": "governance_externality",
+      "mean": 0.2187,
+      "ci_lower_95": 0.2173,
+      "ci_upper_95": 0.2201
+    }
+  ]
+}

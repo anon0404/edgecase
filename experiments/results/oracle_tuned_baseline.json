@@ -23,39 +23,39 @@
     },
     {
       "metric": "avg_care_suppression",
-      "mean": 0.212,
-      "ci_lower_95": 0.1999,
-      "ci_upper_95": 0.2243
+      "mean": 0.2158,
+      "ci_lower_95": 0.2037,
+      "ci_upper_95": 0.2278
     },
     {
       "metric": "avg_security_risk",
-      "mean": 0.2557,
-      "ci_lower_95": 0.248,
-      "ci_upper_95": 0.2633
+      "mean": 0.2515,
+      "ci_lower_95": 0.2438,
+      "ci_upper_95": 0.2591
     },
     {
       "metric": "avg_accessibility_burden",
-      "mean": 0.1967,
-      "ci_lower_95": 0.1842,
-      "ci_upper_95": 0.2096
+      "mean": 0.1952,
+      "ci_lower_95": 0.183,
+      "ci_upper_95": 0.2076
     },
     {
       "metric": "avg_privacy_exposure",
-      "mean": 0.1593,
-      "ci_lower_95": 0.1482,
-      "ci_upper_95": 0.1707
+      "mean": 0.1486,
+      "ci_lower_95": 0.1379,
+      "ci_upper_95": 0.1597
     },
     {
       "metric": "avg_energy_score",
-      "mean": 0.3294,
-      "ci_lower_95": 0.3227,
-      "ci_upper_95": 0.336
+      "mean": 0.3265,
+      "ci_lower_95": 0.32,
+      "ci_upper_95": 0.3332
     },
     {
       "metric": "governance_externality",
-      "mean": 0.2218,
-      "ci_lower_95": 0.2182,
-      "ci_upper_95": 0.2254
+      "mean": 0.2192,
+      "ci_lower_95": 0.2156,
+      "ci_upper_95": 0.2229
     }
   ]
 }

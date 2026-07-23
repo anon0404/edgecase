@@ -3,60 +3,60 @@
     "policy": "strict_block",
     "cases": 1260,
     "mitigation_accuracy": 0.071,
-    "avg_care_suppression": 0.352,
+    "avg_care_suppression": 0.391,
     "avg_security_risk": 0.05,
-    "avg_accessibility_burden": 0.266,
+    "avg_accessibility_burden": 0.329,
     "avg_privacy_exposure": 0.05,
     "avg_energy_score": 0.2,
-    "governance_externality": 0.188,
-    "governance_externality_uniform": 0.184
+    "governance_externality": 0.209,
+    "governance_externality_uniform": 0.204
   },
   {
     "policy": "always_escalate",
     "cases": 1260,
     "mitigation_accuracy": 0.071,
     "avg_care_suppression": 0.129,
-    "avg_security_risk": 0.407,
+    "avg_security_risk": 0.408,
     "avg_accessibility_burden": 0.05,
-    "avg_privacy_exposure": 0.246,
+    "avg_privacy_exposure": 0.277,
     "avg_energy_score": 0.5,
-    "governance_externality": 0.247,
-    "governance_externality_uniform": 0.266
+    "governance_externality": 0.254,
+    "governance_externality_uniform": 0.273
   },
   {
     "policy": "always_verify",
     "cases": 1260,
     "mitigation_accuracy": 0.071,
-    "avg_care_suppression": 0.352,
+    "avg_care_suppression": 0.391,
     "avg_security_risk": 0.05,
-    "avg_accessibility_burden": 0.266,
+    "avg_accessibility_burden": 0.329,
     "avg_privacy_exposure": 0.05,
     "avg_energy_score": 0.5,
-    "governance_externality": 0.218,
-    "governance_externality_uniform": 0.244
+    "governance_externality": 0.239,
+    "governance_externality_uniform": 0.264
   },
   {
     "policy": "maximum_review",
     "cases": 1260,
     "mitigation_accuracy": 0.143,
-    "avg_care_suppression": 0.352,
+    "avg_care_suppression": 0.391,
     "avg_security_risk": 0.05,
-    "avg_accessibility_burden": 0.266,
+    "avg_accessibility_burden": 0.329,
     "avg_privacy_exposure": 0.05,
     "avg_energy_score": 0.9,
-    "governance_externality": 0.258,
-    "governance_externality_uniform": 0.324
+    "governance_externality": 0.279,
+    "governance_externality_uniform": 0.344
   },
   {
     "policy": "edgecase_adaptive",
     "cases": 1260,
-    "mitigation_accuracy": 0.834,
-    "avg_care_suppression": 0.148,
-    "avg_security_risk": 0.252,
-    "avg_accessibility_burden": 0.161,
-    "avg_privacy_exposure": 0.111,
-    "avg_energy_score": 0.306,
-    "governance_externality": 0.184,
-    "governance_externality_uniform": 0.196
+    "mitigation_accuracy": 1.0,
+    "avg_care_suppression": 0.209,
+    "avg_security_risk": 0.251,
+    "avg_accessibility_burden": 0.197,
+    "avg_privacy_exposure": 0.154,
+    "avg_energy_score": 0.329,
+    "governance_externality": 0.219,
+    "governance_externality_uniform": 0.228
   }
 ]

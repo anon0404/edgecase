@@ -1,0 +1,132 @@
+{
+  "n_rows": 152,
+  "per_annotator": {
+    "aidanreilly": {
+      "n_rows": 152,
+      "collision_accuracy_vs_key": 0.8882,
+      "mitigation_accuracy_vs_key": 0.8882,
+      "both_correct_vs_key": 0.8882,
+      "cohen_kappa_collision_vs_key": 0.8698,
+      "n_marked_unclear": 0,
+      "mean_confidence": 4.25
+    },
+    "shiva": {
+      "n_rows": 152,
+      "collision_accuracy_vs_key": 1.0,
+      "mitigation_accuracy_vs_key": 1.0,
+      "both_correct_vs_key": 1.0,
+      "cohen_kappa_collision_vs_key": 1.0,
+      "n_marked_unclear": 0,
+      "mean_confidence": 4.64
+    }
+  },
+  "inter_annotator_agreement_pct": 0.8882,
+  "inter_annotator_cohen_kappa": 0.8698,
+  "n_both_wrong_same_way": 0,
+  "both_wrong_same_way_rows": [],
+  "n_disagreements_with_key_either_annotator": 17,
+  "disagreements_with_key": {
+    "10": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "18": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "20": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "36": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "40": {
+      "true_collision": "privacy_vs_safeguarding",
+      "domain": "public_benefits",
+      "aidanreilly": "memory_care_vs_memory_poisoning",
+      "shiva": "privacy_vs_safeguarding"
+    },
+    "43": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "59": {
+      "true_collision": "verify_vs_accessibility",
+      "domain": "banking_fintech",
+      "aidanreilly": "block_vs_escalate",
+      "shiva": "verify_vs_accessibility"
+    },
+    "68": {
+      "true_collision": "verify_vs_accessibility",
+      "domain": "banking_fintech",
+      "aidanreilly": "The system thinks I am suspicious because I keep repeating myself.",
+      "shiva": "verify_vs_accessibility"
+    },
+    "82": {
+      "true_collision": "verify_vs_accessibility",
+      "domain": "banking_fintech",
+      "aidanreilly": "The system thinks I am suspicious because I keep repeating myself.",
+      "shiva": "verify_vs_accessibility"
+    },
+    "96": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "102": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "118": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "127": {
+      "true_collision": "privacy_vs_safeguarding",
+      "domain": "public_benefits",
+      "aidanreilly": "memory_care_vs_memory_poisoning",
+      "shiva": "privacy_vs_safeguarding"
+    },
+    "136": {
+      "true_collision": "privacy_vs_safeguarding",
+      "domain": "public_benefits",
+      "aidanreilly": "memory_care_vs_memory_poisoning",
+      "shiva": "privacy_vs_safeguarding"
+    },
+    "138": {
+      "true_collision": "privacy_vs_safeguarding",
+      "domain": "public_benefits",
+      "aidanreilly": "memory_care_vs_memory_poisoning",
+      "shiva": "privacy_vs_safeguarding"
+    },
+    "149": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    },
+    "150": {
+      "true_collision": "block_vs_escalate",
+      "domain": "crisis_support",
+      "aidanreilly": "privacy_vs_safeguarding",
+      "shiva": "block_vs_escalate"
+    }
+  }
+}

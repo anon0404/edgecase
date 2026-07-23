@@ -73,7 +73,15 @@ DOMAINS = {
     "education": {
         "n": 180,
         "collision": "fairness_vs_personalization",
-        "signals_a": ["personalization_request", "learning_need", "accommodation_request"],
+        # Bug fix: "learning_need" and "accommodation_request" were never
+        # registered triggers for any obligation (verified against
+        # registry.py's actual trigger lists) - random.choice() picking
+        # either one meant memory.personalize never fired, silently
+        # making that case's ground-truth collision undetectable by
+        # construction. This is the previously-unexplained root cause of
+        # education's anomalously low detection rate (65/180, 36.1%)
+        # flagged but not investigated in Runtime Governance Dynamics.
+        "signals_a": ["personalization_request", "memory_update"],
         "signals_b": ["fairness_risk", "protected_attribute_proxy", "stereotype_risk"],
         "obligations": ["memory.personalize", "fairness.calibrate"],
         "mitigation": "bounded_personalization",
@@ -103,8 +111,13 @@ DOMAINS = {
     "public_benefits": {
         "n": 180,
         "collision": "privacy_vs_safeguarding",
-        "signals_a": ["sensitive_data", "private_context", "data_minimization_request"],
-        "signals_b": ["safeguarding_need", "abuse_disclosure", "coercion"],
+        # Bug fix: "data_minimization_request" and "safeguarding_need"
+        # were never registered triggers for any obligation (verified
+        # against registry.py) - the same class of bug as education
+        # above, and the root cause of public_benefits' anomalously low
+        # detection rate (87/180, 48.3%).
+        "signals_a": ["sensitive_data", "private_context"],
+        "signals_b": ["abuse_disclosure", "coercion"],
         "obligations": ["privacy.minimize", "safeguarding.preserve_context"],
         "mitigation": "split_logging",
         "templates": [

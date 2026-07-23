@@ -28,7 +28,8 @@ POLICY_LABELS = {
     "always_escalate": "Always Escalate",
     "always_verify": "Always Verify",
     "maximum_review": "Maximum Review",
-    "edgecase_adaptive": "Adaptive EdgeCase",
+    "edgecase_adaptive": "Adaptive\nEdgeCase",
+    "llm_detected_edgecase_routed": "LLM-Detected +\nEdgeCase-Routed",
 }
 POLICY_COLORS = {
     "strict_block": "#4C72B0",
@@ -36,6 +37,7 @@ POLICY_COLORS = {
     "always_verify": "#8C8C8C",
     "maximum_review": "#937860",
     "edgecase_adaptive": "#C44E52",
+    "llm_detected_edgecase_routed": "#64A65E",
 }
 PROVIDER_LABELS = {"anthropic": "Claude Sonnet", "gemini": "Gemini 2.5 Pro", "qwen": "Qwen2.5-7B\n(local)"}
 PROVIDER_COLORS = {"anthropic": "#4C72B0", "gemini": "#DD8452", "qwen": "#55A868"}
@@ -52,11 +54,23 @@ def bar_labels(ax, bars, fmt="{:.2f}"):
         ax.annotate(fmt.format(h), (b.get_x() + b.get_width() / 2, h),
                     xytext=(0, 3), textcoords="offset points", ha="center", fontsize=8.5)
 
-# --- Figure 1: Governance tradeoffs across policies (Table 2), small multiples ---
+# --- Figure 1: Governance tradeoffs across policies (Table 1), 10-seed bootstrap
+# mean +/- 95% CI, small multiples. Uses the same statistical_summary.json data
+# Table 1 itself reports (not the single-seed point estimate the previous
+# version of this figure used), plus the new LLM-Detected + EdgeCase-Routed
+# policy (original/"trust the detector" scoring, matching how the other five
+# policies are scored, for visual consistency - see fig6 for the
+# original-vs-penalized comparison specifically). ---
+def _policy_ci_metrics():
+    stats = json.loads(Path("experiments/results/statistical_summary.json").read_text())["ci_per_policy"]
+    llm = json.loads(Path("experiments/results/llm_detected_edgecase_routed.json").read_text())
+    by_policy = {p: {m["metric"]: m for m in metrics} for p, metrics in stats.items()}
+    by_policy["llm_detected_edgecase_routed"] = {m["metric"]: m for m in llm["ci_original"]}
+    return by_policy
+
 def figure_governance_tradeoffs():
-    rows = json.loads(Path("experiments/results/full_evaluation_summary.json").read_text())
-    rows_by_policy = {r["policy"]: r for r in rows}
-    policies = ["strict_block", "always_escalate", "maximum_review", "edgecase_adaptive"]
+    by_policy = _policy_ci_metrics()
+    policies = ["strict_block", "always_escalate", "maximum_review", "edgecase_adaptive", "llm_detected_edgecase_routed"]
 
     metrics = [
         ("mitigation_accuracy", "Mitigation Accuracy\n(higher is better)"),
@@ -67,18 +81,26 @@ def figure_governance_tradeoffs():
         ("avg_energy_score", "Energy Score\n(lower is better)"),
     ]
 
-    fig, axes = plt.subplots(2, 3, figsize=(12, 7))
+    fig, axes = plt.subplots(2, 3, figsize=(13, 7.5))
     for ax, (metric, title) in zip(axes.flat, metrics):
-        values = [rows_by_policy[p][metric] for p in policies]
+        means = [by_policy[p][metric]["mean"] for p in policies]
+        lo = [by_policy[p][metric]["mean"] - by_policy[p][metric]["ci_lower_95"] for p in policies]
+        hi = [by_policy[p][metric]["ci_upper_95"] - by_policy[p][metric]["mean"] for p in policies]
         colors = [POLICY_COLORS[p] for p in policies]
-        bars = ax.bar(range(len(policies)), values, color=colors, width=0.65, edgecolor="white", linewidth=0.8)
+        bars = ax.bar(
+            range(len(policies)), means, color=colors, width=0.65, edgecolor="white", linewidth=0.8,
+            yerr=[lo, hi], capsize=3, error_kw={"linewidth": 1, "ecolor": "#333333"},
+        )
         ax.set_title(title)
         ax.set_xticks(range(len(policies)))
-        ax.set_xticklabels([POLICY_LABELS[p] for p in policies], rotation=30, ha="right", fontsize=8.5)
+        ax.set_xticklabels([POLICY_LABELS[p] for p in policies], rotation=30, ha="right", fontsize=8)
         ax.set_ylim(0, 1.0)
         bar_labels(ax, bars)
 
-    fig.suptitle("Governance Tradeoffs Across Mitigation Policies (n=1,260)", fontsize=14, fontweight="bold", y=1.02)
+    fig.suptitle(
+        "Governance Tradeoffs Across Mitigation Policies\n(mean $\\pm$ 95% bootstrap CI, 10 seeds $\\times$ 1,260 cases)",
+        fontsize=13.5, fontweight="bold", y=1.04,
+    )
     fig.tight_layout()
     savefig(fig, "fig1_governance_tradeoffs")
 
@@ -124,7 +146,7 @@ def figure_ablation():
     ax.set_ylabel("Mitigation Accuracy")
     ax.set_ylim(0, 1.0)
     ax.set_title("Ablation Analysis: Removing Registry or Detection Collapses\nto Zero; Runtime Instrumentation Has No Effect", fontsize=12.5)
-    ax.annotate("no causal path to\nmitigation selection", xy=(4, 0.834), xytext=(3.3, 0.62),
+    ax.annotate("no causal path to\nmitigation selection", xy=(4, 1.0), xytext=(3.3, 0.72),
                 fontsize=8.5, ha="center", arrowprops=dict(arrowstyle="->", color="#4d4d4d"))
     fig.tight_layout()
     savefig(fig, "fig3_ablation_analysis")
@@ -190,12 +212,82 @@ def figure_external_validity():
     fig.tight_layout()
     savefig(fig, "fig5_external_validity_coverage")
 
+# --- Figure 6: Two failure modes, not a convergence story. A correctly-
+# specified deterministic taxonomy (left panel) beats a capable LLM
+# classifier on mitigation accuracy (1.000 vs 0.9915) -- but "correctly
+# specified" was not free: the right panel shows the actual cost of
+# getting it wrong, a phantom-signal bug that silently collapsed
+# detection to 36-48% in two of seven domains until this revision's
+# diversity-verification gate caught it. The LLM's own failure mode
+# (bottom annotation) is smaller in aggregate but structurally different:
+# bounded and concentrated in one explainable confusion pattern, rather
+# than a silent domain-wide collapse. ---
+def figure_detector_swap_convergence():
+    orig_all = json.loads(Path("experiments/results/statistical_summary.json").read_text())["ci_per_policy"]
+    llm = json.loads(Path("experiments/results/llm_detected_edgecase_routed.json").read_text())
+    spec_bug = json.loads(Path("experiments/results/specification_bug_analysis.json").read_text())
+
+    def get(metrics, name):
+        return next(m for m in metrics if m["metric"] == name)
+
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5.5))
+
+    # Left: mitigation accuracy, rule-based (correctly specified) vs LLM.
+    ax = axes[0]
+    labels = ["Adaptive EdgeCase\n(rule-based, fixed)", "LLM-Detected +\nEdgeCase-Routed"]
+    means = [get(orig_all["edgecase_adaptive"], "mitigation_accuracy")["mean"], get(llm["ci_original"], "mitigation_accuracy")["mean"]]
+    m0, m1 = orig_all["edgecase_adaptive"], llm["ci_original"]
+    lo = [means[0] - get(m0, "mitigation_accuracy")["ci_lower_95"], means[1] - get(m1, "mitigation_accuracy")["ci_lower_95"]]
+    hi = [get(m0, "mitigation_accuracy")["ci_upper_95"] - means[0], get(m1, "mitigation_accuracy")["ci_upper_95"] - means[1]]
+    bars = ax.bar(range(2), means, color=["#C44E52", "#64A65E"], width=0.55, edgecolor="white",
+                   yerr=[lo, hi], capsize=4, error_kw={"linewidth": 1.2, "ecolor": "#333333"})
+    bar_labels(ax, bars, fmt="{:.3f}")
+    ax.set_xticks(range(2))
+    ax.set_xticklabels(labels, fontsize=9.5)
+    ax.set_ylim(0, 1.08)
+    outcome = llm["outcome_counts"]
+    ax.annotate(
+        f"LLM: {outcome['wrong_type']}/{outcome['correct']+outcome['wrong_type']} errors,\n"
+        f"one confusion pattern,\none domain (banking)",
+        xy=(1, means[1]), xytext=(0.55, 0.55), fontsize=8.5, ha="center",
+        arrowprops=dict(arrowstyle="->", color="#4d4d4d"),
+    )
+    ax.set_title("Mitigation Accuracy\n(same routing table, different detector)", fontsize=11.5)
+
+    # Right: the cost of "correctly specified" - detection rate by domain,
+    # before vs after the phantom-signal bug fix. Only the two affected
+    # domains shown; the other five were 100% throughout.
+    ax = axes[1]
+    domains = list(spec_bug["before_fix"].keys())
+    before_rates = [spec_bug["before_fix"][d]["rate"] * 100 for d in domains]
+    after_rates = [spec_bug["after_fix"][d]["rate"] * 100 for d in domains]
+    x = range(len(domains))
+    width = 0.35
+    b1 = ax.bar([i - width / 2 for i in x], before_rates, width, label="Before fix", color="#C4C4C4", edgecolor="white")
+    b2 = ax.bar([i + width / 2 for i in x], after_rates, width, label="After fix", color="#4C72B0", edgecolor="white")
+    bar_labels(ax, b1, fmt="{:.0f}%")
+    bar_labels(ax, b2, fmt="{:.0f}%")
+    ax.set_xticks(list(x))
+    ax.set_xticklabels([d.replace("_", "\n") for d in domains], fontsize=9.5)
+    ax.set_ylabel("Detection Rate")
+    ax.set_ylim(0, 115)
+    ax.legend(loc="upper left", fontsize=9, frameon=True, facecolor="white")
+    ax.set_title("Cost of \"Correctly Specified\":\nSilent, Total Failure in the Affected Slice", fontsize=11.5)
+
+    fig.suptitle(
+        "Two Failure Modes: a Misspecified Deterministic System Fails Silently and\nTotally; an LLM Fails Rarely but Unpredictably",
+        fontsize=13, fontweight="bold", y=1.06,
+    )
+    fig.tight_layout()
+    savefig(fig, "fig6_detector_swap_convergence")
+
 def main():
     figure_governance_tradeoffs()
     figure_xk_weighting()
     figure_ablation()
     figure_cross_model()
     figure_external_validity()
+    figure_detector_swap_convergence()
 
 if __name__ == "__main__":
     main()

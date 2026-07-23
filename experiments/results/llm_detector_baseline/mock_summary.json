@@ -1,0 +1,21 @@
+{
+  "provider": "mock",
+  "conditions": {
+    "with_signals": {
+      "n": 152,
+      "collision_accuracy": 0.0,
+      "mitigation_accuracy": 0.0,
+      "cohen_kappa_vs_ground_truth": 0.0,
+      "n_parse_errors": 152,
+      "avg_latency_ms": 0.0
+    },
+    "prompt_only": {
+      "n": 152,
+      "collision_accuracy": 0.0,
+      "mitigation_accuracy": 0.0,
+      "cohen_kappa_vs_ground_truth": 0.0,
+      "n_parse_errors": 152,
+      "avg_latency_ms": 0.0
+    }
+  }
+}

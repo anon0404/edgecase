@@ -1,0 +1,49 @@
+{
+  "name": "edgecase_benchmark_v2",
+  "version": "2.0",
+  "total_instances": 1260,
+  "domains": [
+    "crisis_support",
+    "banking_fintech",
+    "healthcare_triage",
+    "enterprise_copilot",
+    "education",
+    "moderation",
+    "public_benefits"
+  ],
+  "distinct_prompt_templates_per_domain": {
+    "crisis_support": 26,
+    "banking_fintech": 20,
+    "healthcare_triage": 18,
+    "enterprise_copilot": 18,
+    "education": 15,
+    "moderation": 20,
+    "public_benefits": 15
+  },
+  "total_distinct_prompt_templates": 132,
+  "collision_types_per_domain": {
+    "crisis_support": 2,
+    "banking_fintech": 1,
+    "healthcare_triage": 1,
+    "enterprise_copilot": 1,
+    "education": 1,
+    "moderation": 2,
+    "public_benefits": 1
+  },
+  "fields": {
+    "id": "unique benchmark instance id",
+    "benchmark": "benchmark name",
+    "domain": "application domain",
+    "prompt": "workflow prompt",
+    "signals": "triggering runtime signals",
+    "active_obligations": "governance obligations activated by the signals",
+    "collision": "expected boundary collision type",
+    "expected_mitigation": "reference bounded mitigation strategy",
+    "severity": "synthetic severity score in [0,1]",
+    "ambiguity": "synthetic ambiguity score in [0,1]",
+    "energy_budget": "low, medium, or high",
+    "requires_runtime_trace": "whether workflow trace instrumentation is expected",
+    "annotation_type": "annotation provenance",
+    "scenario_pattern": "primary, crossover (same domain, different collision type, grounded in real registry trigger overlap), or indirect_third_party (tension via retrieved content) - see Taxonomy Validation appendix"
+  }
+}

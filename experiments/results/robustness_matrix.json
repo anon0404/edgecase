@@ -1,0 +1,194 @@
+[
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "pole-based (original)",
+    "baseline_xk": 0.2083,
+    "baseline_ci": [
+      0.2065,
+      0.2103
+    ],
+    "adaptive_scoring": "original (undetected=free)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Baseline wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "pole-based (original)",
+    "baseline_xk": 0.2083,
+    "baseline_ci": [
+      0.2065,
+      0.2103
+    ],
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Baseline wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "action-specific",
+    "baseline_xk": 0.1831,
+    "baseline_ci": [
+      0.1821,
+      0.1841
+    ],
+    "adaptive_scoring": "original (undetected=free)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Baseline wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "action-specific",
+    "baseline_xk": 0.1831,
+    "baseline_ci": [
+      0.1821,
+      0.1841
+    ],
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Baseline wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "pole-based (original)",
+    "baseline_xk": 0.2534,
+    "baseline_ci": [
+      0.2528,
+      0.254
+    ],
+    "adaptive_scoring": "original (undetected=free)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Adaptive EdgeCase wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "pole-based (original)",
+    "baseline_xk": 0.2534,
+    "baseline_ci": [
+      0.2528,
+      0.254
+    ],
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Adaptive EdgeCase wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "action-specific",
+    "baseline_xk": 0.2131,
+    "baseline_ci": [
+      0.2121,
+      0.2141
+    ],
+    "adaptive_scoring": "original (undetected=free)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Baseline wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "action-specific",
+    "baseline_xk": 0.2131,
+    "baseline_ci": [
+      0.2121,
+      0.2141
+    ],
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Baseline wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "pole-based (original)",
+    "baseline_xk": 0.2783,
+    "baseline_ci": [
+      0.2764,
+      0.2803
+    ],
+    "adaptive_scoring": "original (undetected=free)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Adaptive EdgeCase wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "pole-based (original)",
+    "baseline_xk": 0.2783,
+    "baseline_ci": [
+      0.2764,
+      0.2803
+    ],
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Adaptive EdgeCase wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "action-specific",
+    "baseline_xk": 0.2537,
+    "baseline_ci": [
+      0.2522,
+      0.2551
+    ],
+    "adaptive_scoring": "original (undetected=free)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Adaptive EdgeCase wins (lower Xk, non-overlapping)"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "action-specific",
+    "baseline_xk": 0.2537,
+    "baseline_ci": [
+      0.2522,
+      0.2551
+    ],
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "adaptive_xk": 0.2187,
+    "adaptive_ci": [
+      0.2173,
+      0.2201
+    ],
+    "verdict": "Adaptive EdgeCase wins (lower Xk, non-overlapping)"
+  }
+]

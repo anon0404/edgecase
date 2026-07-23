@@ -1,6 +1,6 @@
 | policy | cases | mitigation_accuracy | avg_care_suppression | avg_security_risk | avg_accessibility_burden | avg_privacy_exposure | avg_energy_score | governance_externality | governance_externality_uniform |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| strict_block | 1260 | 0.071 | 0.352 | 0.05 | 0.266 | 0.05 | 0.2 | 0.188 | 0.184 |
-| always_escalate | 1260 | 0.071 | 0.129 | 0.407 | 0.05 | 0.246 | 0.5 | 0.247 | 0.266 |
-| maximum_review | 1260 | 0.143 | 0.352 | 0.05 | 0.266 | 0.05 | 0.9 | 0.258 | 0.324 |
-| edgecase_adaptive | 1260 | 0.834 | 0.148 | 0.252 | 0.161 | 0.111 | 0.306 | 0.184 | 0.196 |
+| strict_block | 1260 | 0.071 | 0.391 | 0.05 | 0.329 | 0.05 | 0.2 | 0.209 | 0.204 |
+| always_escalate | 1260 | 0.071 | 0.129 | 0.408 | 0.05 | 0.277 | 0.5 | 0.254 | 0.273 |
+| maximum_review | 1260 | 0.143 | 0.391 | 0.05 | 0.329 | 0.05 | 0.9 | 0.279 | 0.344 |
+| edgecase_adaptive | 1260 | 1.0 | 0.209 | 0.251 | 0.197 | 0.154 | 0.329 | 0.219 | 0.228 |

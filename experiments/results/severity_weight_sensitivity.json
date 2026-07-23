@@ -1,0 +1,98 @@
+[
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "pole-based (original)",
+    "adaptive_scoring": "original (undetected=free)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.6817,
+    "paper_reported_weights_result": "baseline wins"
+  },
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "pole-based (original)",
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.6817,
+    "paper_reported_weights_result": "baseline wins"
+  },
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "action-specific",
+    "adaptive_scoring": "original (undetected=free)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.0,
+    "paper_reported_weights_result": "baseline wins"
+  },
+  {
+    "baseline": "strict_block",
+    "baseline_scoring": "action-specific",
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.0,
+    "paper_reported_weights_result": "baseline wins"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "pole-based (original)",
+    "adaptive_scoring": "original (undetected=free)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.7937,
+    "paper_reported_weights_result": "adaptive wins"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "pole-based (original)",
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.7937,
+    "paper_reported_weights_result": "adaptive wins"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "action-specific",
+    "adaptive_scoring": "original (undetected=free)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.0175,
+    "paper_reported_weights_result": "baseline wins"
+  },
+  {
+    "baseline": "always_escalate",
+    "baseline_scoring": "action-specific",
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.0175,
+    "paper_reported_weights_result": "baseline wins"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "pole-based (original)",
+    "adaptive_scoring": "original (undetected=free)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.937,
+    "paper_reported_weights_result": "adaptive wins"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "pole-based (original)",
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.937,
+    "paper_reported_weights_result": "adaptive wins"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "action-specific",
+    "adaptive_scoring": "original (undetected=free)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.3711,
+    "paper_reported_weights_result": "adaptive wins"
+  },
+  {
+    "baseline": "maximum_review",
+    "baseline_scoring": "action-specific",
+    "adaptive_scoring": "penalized (undetected=charged real cost)",
+    "n_draws": 20000,
+    "adaptive_win_rate": 0.3711,
+    "paper_reported_weights_result": "adaptive wins"
+  }
+]

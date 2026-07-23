@@ -1,7 +1,7 @@
 | Configuration | Mitigation Accuracy |
 | --- | --- |
-| Full EdgeCase | 0.834 |
+| Full EdgeCase | 1.0 |
 | - Obligation Registry | 0.0 |
 | - Collision Detection | 0.0 |
-| - Adaptive Routing | 0.106 |
-| - Runtime Instrumentation | 0.834 |
+| - Adaptive Routing | 0.143 |
+| - Runtime Instrumentation | 1.0 |

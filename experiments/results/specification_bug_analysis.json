@@ -1,0 +1,36 @@
+{
+  "before_fix": {
+    "education": {
+      "total": 180,
+      "detected": 65,
+      "rate": 0.3611
+    },
+    "public_benefits": {
+      "total": 180,
+      "detected": 87,
+      "rate": 0.4833
+    }
+  },
+  "after_fix": {
+    "education": {
+      "total": 180,
+      "detected": 180,
+      "rate": 1.0
+    },
+    "public_benefits": {
+      "total": 180,
+      "detected": 180,
+      "rate": 1.0
+    }
+  },
+  "phantom_signals_removed": {
+    "education": [
+      "accommodation_request",
+      "learning_need"
+    ],
+    "public_benefits": [
+      "data_minimization_request",
+      "safeguarding_need"
+    ]
+  }
+}

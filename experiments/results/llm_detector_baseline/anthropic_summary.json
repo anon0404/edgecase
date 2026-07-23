@@ -1,0 +1,21 @@
+{
+  "provider": "anthropic",
+  "conditions": {
+    "with_signals": {
+      "n": 152,
+      "collision_accuracy": 0.9934,
+      "mitigation_accuracy": 0.9934,
+      "cohen_kappa_vs_ground_truth": 0.9923,
+      "n_parse_errors": 0,
+      "avg_latency_ms": 2276.8
+    },
+    "prompt_only": {
+      "n": 152,
+      "collision_accuracy": 0.9803,
+      "mitigation_accuracy": 0.9803,
+      "cohen_kappa_vs_ground_truth": 0.977,
+      "n_parse_errors": 0,
+      "avg_latency_ms": 2266.1
+    }
+  }
+}

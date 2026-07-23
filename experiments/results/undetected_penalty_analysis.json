@@ -1,0 +1,62 @@
+{
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "n_total_cases": 12600,
+  "n_undetected": 0,
+  "undetected_fraction": 0.0,
+  "scoring": "undetected collisions charged the true collision type's real externality profile instead of the zero default",
+  "ci_metrics": [
+    {
+      "metric": "mitigation_accuracy",
+      "mean": 1.0,
+      "ci_lower_95": 1.0,
+      "ci_upper_95": 1.0
+    },
+    {
+      "metric": "avg_care_suppression",
+      "mean": 0.2086,
+      "ci_lower_95": 0.204,
+      "ci_upper_95": 0.2132
+    },
+    {
+      "metric": "avg_security_risk",
+      "mean": 0.2514,
+      "ci_lower_95": 0.2484,
+      "ci_upper_95": 0.2545
+    },
+    {
+      "metric": "avg_accessibility_burden",
+      "mean": 0.1971,
+      "ci_lower_95": 0.1925,
+      "ci_upper_95": 0.202
+    },
+    {
+      "metric": "avg_privacy_exposure",
+      "mean": 0.1543,
+      "ci_lower_95": 0.1501,
+      "ci_upper_95": 0.1585
+    },
+    {
+      "metric": "avg_energy_score",
+      "mean": 0.3286,
+      "ci_lower_95": 0.326,
+      "ci_upper_95": 0.3311
+    },
+    {
+      "metric": "governance_externality",
+      "mean": 0.2187,
+      "ci_lower_95": 0.2173,
+      "ci_upper_95": 0.2201
+    }
+  ]
+}
